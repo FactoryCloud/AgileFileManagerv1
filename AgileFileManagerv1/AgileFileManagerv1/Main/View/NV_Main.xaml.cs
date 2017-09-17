@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AgileFileManagerv1
+namespace AgileFileManagerv1.Main.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NV_Main.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NV_Main : Page
     {
-        public MainWindow()
+        public NV_Main()
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
-            this.Loaded += new RoutedEventHandler(EV_Start);
-        }
-
-        private void EV_Start(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new Main.Controller.MainController();
         }
     }
 }

@@ -66,8 +66,37 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Main\View\MC_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main\View\NV_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main\View\TS_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Original\Controller\AgileManagerController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Main\Controller\MainController.cs" />
+    <Compile Include="Main\View\MC_Main.xaml.cs">
+      <DependentUpon>MC_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main\View\NV_Main.xaml.cs">
+      <DependentUpon>NV_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main\View\TS_Main.xaml.cs">
+      <DependentUpon>TS_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Original\Controller\AgileManagerController.xaml.cs">
+      <DependentUpon>AgileManagerController.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +121,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Client\Controller\" />
+    <Folder Include="Client\Model\" />
+    <Folder Include="Client\View\" />
+    <Folder Include="Config\Controller\" />
+    <Folder Include="Config\Model\" />
+    <Folder Include="Config\View\" />
+    <Folder Include="Main\Model\" />
+    <Folder Include="Original\Model\" />
+    <Folder Include="Original\View\" />
+    <Folder Include="WorkingBoard\Controller\" />
+    <Folder Include="WorkingBoard\Model\" />
+    <Folder Include="WorkingBoard\View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
