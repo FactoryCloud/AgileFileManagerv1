@@ -13,23 +13,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AgileFileManagerv1.Main.Controller
+namespace AgileFileManagerv1.WorkingBoard.Controller
 {
     /// <summary>
     /// Interaction logic for MainController.xaml
     /// </summary>
-    public partial class MainController : Original.Controller.AgileManagerController
+    public partial class WorkingBoardController : Original.Controller.AgileManagerController
     {
         private Page NV_Page;
         private Page TS_Page;
         private Page MC_Page;
 
-        public MainController()
+        public WorkingBoardController()
         {
             InitializeComponent();
             Information = new Dictionary<string, int>();
             Information.Add("mode", 0);
+            Information.Add("oldmode", 0);
             Information.Add("controller", 0);
+            Information.Add("oldcontroller", 0);
 
             this.Loaded += new RoutedEventHandler(EV_Start);
         }
@@ -39,9 +41,15 @@ namespace AgileFileManagerv1.Main.Controller
             UpdateComponents();
         }
 
-        public void CT_WorkingBoard()
+        public void MD_Change(int i)
         {
-            Information["controller"] = 2;
+            Information["oldmode"] = Information["mode"];
+            Information["mode"] = i;
+        }
+
+        public void CT_Main()
+        {
+            Information["controller"] = 1;
             ChangeController();
         }
 
@@ -50,11 +58,33 @@ namespace AgileFileManagerv1.Main.Controller
             switch(Information["mode"])
             {
                 case 0:
-                    NV_Page = new Main.View.NV_Main();
-                    TS_Page = new Main.View.TS_Main();
-                    MC_Page = new Main.View.MC_Main();
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    TS_Page = new WorkingBoard.View.TS_WB_ToDo();
+                    MC_Page = new WorkingBoard.View.MC_WB_ToDo();
                     ChangeComponents();
                     break;
+
+                case 1:
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    TS_Page = null;
+                    MC_Page = new WorkingBoard.View.MC_WB_InProgress();
+                    ChangeComponents();
+                    break;
+
+                case 2:
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    TS_Page = null;
+                    MC_Page = new WorkingBoard.View.MC_WB_ToTest();
+                    ChangeComponents();
+                    break;
+
+                case 3:
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    TS_Page = null;
+                    MC_Page = new WorkingBoard.View.MC_WB_Finished();
+                    ChangeComponents();
+                    break;
+
             }
         }
 
@@ -69,9 +99,9 @@ namespace AgileFileManagerv1.Main.Controller
         {
             switch (Information["controller"])
             {
-                case 2:
+                case 1:
                     MainWindow b = (MainWindow)Application.Current.MainWindow;
-                    b.MainFrame.Content = new WorkingBoard.Controller.WorkingBoardController();
+                    b.MainFrame.Content = new Main.Controller.MainController();
                     break;
             }
         }

@@ -54,6 +54,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WorkingBoard\Controller\WorkingBoardController.cs" />
+    <Compile Include="WorkingBoard\View\MC_WB_Finished.xaml.cs">
+      <DependentUpon>MC_WB_Finished.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\View\MC_WB_InProgress.xaml.cs">
+      <DependentUpon>MC_WB_InProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\View\MC_WB_ToDo.xaml.cs">
+      <DependentUpon>MC_WB_ToDo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\View\MC_WB_ToTest.xaml.cs">
+      <DependentUpon>MC_WB_ToTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\View\NV_WB_Main.xaml.cs">
+      <DependentUpon>NV_WB_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\View\TS_WB_ToDo.xaml.cs">
+      <DependentUpon>TS_WB_ToDo.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +98,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Original\Controller\AgileManagerController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\MC_WB_Finished.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\MC_WB_InProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\MC_WB_ToDo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\MC_WB_ToTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\NV_WB_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\TS_WB_ToDo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,9 +175,13 @@
     <Folder Include="Main\Model\" />
     <Folder Include="Original\Model\" />
     <Folder Include="Original\View\" />
-    <Folder Include="WorkingBoard\Controller\" />
     <Folder Include="WorkingBoard\Model\" />
-    <Folder Include="WorkingBoard\View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryDB\LibraryDB.csproj">
+      <Project>{e194b401-1d02-4146-acc8-e42b61bdeb29}</Project>
+      <Name>LibraryDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

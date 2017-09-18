@@ -24,5 +24,17 @@ namespace AgileFileManagerv1.Main.View
         {
             InitializeComponent();
         }
+
+        private void EV_WorkingBoard(object sender, RoutedEventArgs e)
+        {
+            GetController().CT_WorkingBoard();
+        }
+
+        private Main.Controller.MainController GetController()
+        {
+            Window mainWindow = Application.Current.MainWindow;
+            var a = (MainWindow)mainWindow;
+            return (Main.Controller.MainController)a.MainFrame.Content;
+        }
     }
 }
