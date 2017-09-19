@@ -35,14 +35,19 @@ namespace AgileFileManagerv1.WorkingBoard.View
             GetController().MD_Change(1);
         }
 
-        private void MD_ToTest(object sender, RoutedEventArgs e)
+        private void MD_ToFinish(object sender, RoutedEventArgs e)
         {
             GetController().MD_Change(2);
         }
 
-        private void MD_Finished(object sender, RoutedEventArgs e)
+        private void MD_ToTest(object sender, RoutedEventArgs e)
         {
             GetController().MD_Change(3);
+        }
+
+        private void MD_Finished(object sender, RoutedEventArgs e)
+        {
+            GetController().MD_Change(4);
         }
 
         private void MD_Back(object sender, RoutedEventArgs e)

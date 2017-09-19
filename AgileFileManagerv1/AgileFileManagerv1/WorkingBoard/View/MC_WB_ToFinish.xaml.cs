@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace AgileFileManagerv1.WorkingBoard.View
 {
     /// <summary>
-    /// Interaction logic for TS_WB_ToDo.xaml
+    /// Interaction logic for MC_WB_ToFinish.xaml
     /// </summary>
-    public partial class TS_WB_ToDo : Page
+    public partial class MC_WB_ToFinish : Page
     {
-        public TS_WB_ToDo()
+        public MC_WB_ToFinish()
         {
             InitializeComponent();
-        }
-
-        private void EV_StartFile(object sender, RoutedEventArgs e)
-        {
-            FloatWindows.FW_Client.Controller.FW_Client floatWindow = new FloatWindows.FW_Client.Controller.FW_Client();
-            floatWindow.Show();
         }
     }
 }

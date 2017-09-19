@@ -13,22 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AgileFileManagerv1.WorkingBoard.View
+namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
 {
     /// <summary>
-    /// Interaction logic for TS_WB_ToDo.xaml
+    /// Interaction logic for TS_WB_ToDo_Main.xaml
     /// </summary>
-    public partial class TS_WB_ToDo : Page
+    public partial class TS_WB_ToDo_Main : Page
     {
-        public TS_WB_ToDo()
+        public TS_WB_ToDo_Main()
         {
             InitializeComponent();
         }
 
-        private void EV_StartFile(object sender, RoutedEventArgs e)
+        private WorkingBoard.Nodes.WB_ToDo.Controller.WB_ToDoController GetController()
         {
-            FloatWindows.FW_Client.Controller.FW_Client floatWindow = new FloatWindows.FW_Client.Controller.FW_Client();
-            floatWindow.Show();
+            Window mainWindow = Application.Current.MainWindow;
+            var a = (MainWindow)mainWindow;
+            return (WorkingBoard.Nodes.WB_ToDo.Controller.WB_ToDoController)a.MainFrame.Content;
         }
     }
 }

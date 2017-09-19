@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileFileManagerv1", "AgileFileManagerv1\AgileFileManagerv1.csproj", "{3625F25D-BC3C-4F7E-B94C-5A3E6C6369DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDB", "LibraryDB\LibraryDB.csproj", "{E194B401-1D02-4146-ACC8-E42B61BDEB29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameWorkDB", "FrameWorkDB\FrameWorkDB.csproj", "{DC9FBD1F-C9A0-4DBB-86E8-BD9CDAB1538A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{3625F25D-BC3C-4F7E-B94C-5A3E6C6369DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3625F25D-BC3C-4F7E-B94C-5A3E6C6369DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3625F25D-BC3C-4F7E-B94C-5A3E6C6369DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E194B401-1D02-4146-ACC8-E42B61BDEB29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E194B401-1D02-4146-ACC8-E42B61BDEB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E194B401-1D02-4146-ACC8-E42B61BDEB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E194B401-1D02-4146-ACC8-E42B61BDEB29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9FBD1F-C9A0-4DBB-86E8-BD9CDAB1538A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9FBD1F-C9A0-4DBB-86E8-BD9CDAB1538A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9FBD1F-C9A0-4DBB-86E8-BD9CDAB1538A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9FBD1F-C9A0-4DBB-86E8-BD9CDAB1538A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

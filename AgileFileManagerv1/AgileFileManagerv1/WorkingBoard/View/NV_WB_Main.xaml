@@ -19,8 +19,9 @@
         </Grid.ColumnDefinitions>
         <Button Name="BT_ToDo" Margin="20" Click="MD_ToDo">Pendientes</Button>
         <Button Name="BT_InProgress" Margin="20" Grid.Column="1" Click="MD_InProgress">En Progreso</Button>
-        <Button Name="BT_ToTest" Margin="20" Grid.Column="2" Click="MD_ToTest">Por Comprobar</Button>
-        <Button Name="BT_Finished" Margin="20" Grid.Column="3" Click="MD_Finished">Finalizados</Button>
+        <Button Name="BT_ToFinish" Margin="20" Grid.Column="2" Click="MD_ToFinish">Por terminar</Button>
+        <Button Name="BT_ToTest" Margin="20" Grid.Column="3" Click="MD_ToTest">Por Comprobar</Button>
+        <Button Name="BT_Finished" Margin="20" Grid.Column="4" Click="MD_Finished">Finalizados</Button>
         <Button Name="BT_Close" Margin="20" Grid.Column="5" Click="MD_Back">Volver</Button>
     </Grid>
 </Page>
