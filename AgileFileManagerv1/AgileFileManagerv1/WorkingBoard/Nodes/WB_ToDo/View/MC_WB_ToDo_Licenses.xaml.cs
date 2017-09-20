@@ -59,6 +59,8 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
                 button.MaxHeight = 40;
                 button.MaxWidth = 120;
                 button.Tag = item.LicenseID;
+                if (item.DateEnd < DateTime.Now)
+                    button.IsEnabled = false;
                 button.Click += new RoutedEventHandler(EV_License);
                 Grid.SetColumn(button, 1);
 
@@ -81,7 +83,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
 
         private void EV_License(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"{(sender as Button).Tag}");
+            //MessageBox.Show($"{(sender as Button).Tag}");
             GetController().SetLicense(Convert.ToInt32((sender as Button).Tag));
             GetController().MD_Change(3);
         }

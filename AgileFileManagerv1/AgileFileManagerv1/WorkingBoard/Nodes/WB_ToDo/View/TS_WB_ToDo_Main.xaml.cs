@@ -23,6 +23,16 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
         public TS_WB_ToDo_Main()
         {
             InitializeComponent();
+
+            MessageBox.Show("recarga");
+
+            if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Count > 0)
+                BT_SaveFile.IsEnabled = true;
+        }
+
+        private void EV_SaveFile(object sender, RoutedEventArgs e)
+        {
+            GetController().SaveFile();
         }
 
         private WorkingBoard.Nodes.WB_ToDo.Controller.WB_ToDoController GetController()

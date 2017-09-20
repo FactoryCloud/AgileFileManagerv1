@@ -29,12 +29,12 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
 
         private void EV_Start(object sender, RoutedEventArgs e)
         {
-            TX_ClientName.Text = GetController().client.Name;
-            TX_ClientSubName.Text = GetController().client.SubName;
-            TX_ClientAddress.Text = GetController().client.Address;
-            TX_ClientPhone1.Text = GetController().client.Phone1;
-            TX_ClientPhone2.Text = GetController().client.Phone2;
-            TX_ClientMail1.Text = GetController().client.Mail1;
+            TX_ClientName.Text = GetController().file.client.Name;
+            TX_ClientSubName.Text = GetController().file.client.SubName;
+            TX_ClientAddress.Text = GetController().file.client.Address;
+            TX_ClientPhone1.Text = GetController().file.client.Phone1;
+            TX_ClientPhone2.Text = GetController().file.client.Phone2;
+            TX_ClientMail1.Text = GetController().file.client.Mail1;
         }
 
         private WorkingBoard.Nodes.WB_ToDo.Controller.WB_ToDoController GetController()

@@ -27,7 +27,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
             if (GetController().dealer != null)
                 BT_Dealer.Visibility = Visibility.Visible;
 
-            if (GetController().license != null)
+            if (GetController().file.license != null)
                 BT_Report.IsEnabled = true;
         }
 

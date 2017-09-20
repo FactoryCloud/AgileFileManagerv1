@@ -26,10 +26,11 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.Controller
         private Page TS_Page;
         private Page MC_Page;
 
-        public Client client;
+        public File file;
         public Dealer dealer;
-        public License license;
         public List<License> licenses;
+        public List<Report> reports;
+        public List<Intervention> interventions;
         AgileManagerDB db;
 
         public WB_ToDoController(Client client)
@@ -42,9 +43,14 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.Controller
             Information.Add("oldcontroller", 0);
 
             db = new AgileManagerDB();
+            reports = new List<Report>();
+            file = new File();
+            file.client = client;
+            file.ClientID = client.ClientID;
+            interventions = new List<Intervention>();
             licenses = db.Licenses.Where(c => c.ClientID == client.ClientID).Include(c=> c.application).ToList();
 
-            this.client = client;
+            //this.client = client;
             dealer = client.dealer;
 
             this.Loaded += new RoutedEventHandler(EV_Start);
@@ -55,9 +61,49 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.Controller
             UpdateComponents();
         }
 
+        public void EV_TS_Update()
+        {
+            TS_Page = new WorkingBoard.Nodes.WB_ToDo.View.TS_WB_ToDo_Main();
+            LeftSide.Content = TS_Page;
+        }
+
         public void SetLicense(int number)
         {
-            license = db.Licenses.First(l => l.LicenseID == number);
+            file.license = db.Licenses.First(l => l.LicenseID == number);
+            file.LicenseID = file.license.LicenseID;
+        }
+
+        public void SetIssue(int number)
+        {
+            file.issue = db.Issues.First(i => i.IssueID == number);
+            file.IssueID = file.issue.IssueID;
+            EV_TS_Update();
+        }
+
+        public void SetPriority(int number)
+        {
+            file.priority = db.Priorities.First(i => i.PriorityID == number);
+            file.PriorityID = file.priority.PriorityID;
+            EV_TS_Update();
+        }
+
+        public List<Issue> GetIssues ()
+        {
+            return db.Issues.Include(i => i.department).ToList();
+        }
+
+        public List<Priority> GetPriorities()
+        {
+            return db.Priorities.ToList();
+        }
+
+        public void SaveFile()
+        {
+            file.client = null;
+            db.Files.Add(file);
+            db.Reports.AddRange(reports);
+            db.Interventions.AddRange(interventions);
+            db.SaveChanges();
         }
 
         public void MD_Change(int i)
