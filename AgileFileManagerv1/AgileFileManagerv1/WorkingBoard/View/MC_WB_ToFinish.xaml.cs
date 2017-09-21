@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,45 @@ namespace AgileFileManagerv1.WorkingBoard.View
     /// </summary>
     public partial class MC_WB_ToFinish : Page
     {
+        WorkingBoard.Model.VW_Files viewFiles;
         public MC_WB_ToFinish()
         {
             InitializeComponent();
+
+            this.Loaded += new RoutedEventHandler(EV_Start);
+
+            viewFiles = new Model.VW_Files(3);
+
+            DG_FilesToFinish.MouseLeftButtonUp += new MouseButtonEventHandler(FileSelected_Event);
+        }
+
+        private void EV_Start(object sender, RoutedEventArgs e)
+        {
+            UpdateData();
+        }
+
+        private void FileSelected_Event(object sender, MouseButtonEventArgs e)
+        {
+            int num = DG_FilesToFinish.SelectedIndex;
+            if (num >= 0)
+            {
+                DataGridRow row = (DataGridRow)DG_FilesToFinish.ItemContainerGenerator.ContainerFromIndex(num);
+                DataRowView dr = row.Item as DataRowView;
+                GetController().SetFileToFinish(Int32.Parse(dr.Row.ItemArray[0].ToString()));
+            }
+        }
+
+        private void UpdateData()
+        {
+            DG_FilesToFinish.ItemsSource = null;
+            DG_FilesToFinish.ItemsSource = viewFiles.GetTable();
+        }
+
+        private WorkingBoard.Controller.WorkingBoardController GetController()
+        {
+            Window mainWindow = Application.Current.MainWindow;
+            var a = (MainWindow)mainWindow;
+            return (WorkingBoard.Controller.WorkingBoardController)a.MainFrame.Content;
         }
     }
 }

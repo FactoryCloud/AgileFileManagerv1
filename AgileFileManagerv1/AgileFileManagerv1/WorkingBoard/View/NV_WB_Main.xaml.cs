@@ -20,9 +20,32 @@ namespace AgileFileManagerv1.WorkingBoard.View
     /// </summary>
     public partial class NV_WB_Main : Page
     {
-        public NV_WB_Main()
+        public NV_WB_Main(int option)
         {
             InitializeComponent();
+
+            switch(option)
+            {
+                case 1:
+                    BT_ToDo.Background = new SolidColorBrush(Colors.LightGreen);
+                    break;
+
+                case 2:
+                    BT_InProgress.Background = new SolidColorBrush(Colors.LightGreen);
+                    break;
+
+                case 3:
+                    BT_ToFinish.Background = new SolidColorBrush(Colors.LightGreen);
+                    break;
+
+                case 4:
+                    BT_ToTest.Background = new SolidColorBrush(Colors.LightGreen);
+                    break;
+
+                case 5:
+                    BT_Finished.Background = new SolidColorBrush(Colors.LightGreen);
+                    break;
+            }
         }
 
         private void MD_ToDo(object sender, RoutedEventArgs e)

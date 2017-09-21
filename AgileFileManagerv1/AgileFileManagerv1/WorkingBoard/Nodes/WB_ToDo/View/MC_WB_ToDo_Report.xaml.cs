@@ -135,6 +135,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
                     GetController().reports.Add(new Report
                     {
                         file = GetController().file,
+                        EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
                         Description = (sender as TextBox).Text,
                         Date = DateTime.Now,
                     });
@@ -186,6 +187,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.View
                     GetController().interventions.Add(new Intervention
                     {
                         file = GetController().file,
+                        EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
                         Description = (sender as TextBox).Text,
                         Date = DateTime.Now,
                     });

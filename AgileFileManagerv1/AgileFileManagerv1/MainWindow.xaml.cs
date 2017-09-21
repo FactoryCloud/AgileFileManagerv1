@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FrameWorkDB.V1;
 
 namespace AgileFileManagerv1
 {
@@ -20,6 +21,7 @@ namespace AgileFileManagerv1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Employee employee;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +32,8 @@ namespace AgileFileManagerv1
         private void EV_Start(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new Main.Controller.MainController();
+            AgileManagerDB db = new AgileManagerDB();
+            employee = db.Employees.First(em => em.EmployeeID == 2);
         }
     }
 }

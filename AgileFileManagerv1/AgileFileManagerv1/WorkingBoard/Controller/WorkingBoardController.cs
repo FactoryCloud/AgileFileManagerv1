@@ -25,16 +25,24 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
         private Page TS_Page;
         private Page MC_Page;
 
+        AgileManagerDB db;
         Client client;
+        File fileToDo;
+        File fileInProgress;
+        File fileToFinish;
+        File fileFinished;
+        int Option;
 
         public WorkingBoardController()
         {
             InitializeComponent();
+            db = new AgileManagerDB();
             Information = new Dictionary<string, int>();
-            Information.Add("mode", 0);
-            Information.Add("oldmode", 0);
+            Information.Add("mode", 1);
+            Information.Add("oldmode", 1);
             Information.Add("controller", 0);
             Information.Add("oldcontroller", 0);
+            Information.Add("option", 2);
 
             this.Loaded += new RoutedEventHandler(EV_Start);
         }
@@ -44,10 +52,33 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             UpdateComponents();
         }
 
+        public void SetFileToDo(int num)
+        {
+            fileToDo = db.Files.First(f => f.FileID == num);
+            TS_Page = new WorkingBoard.View.TS_WB_ToDo();
+            LeftSide.Content = TS_Page;
+        }
+
+        public void SetFileToFinish(int num)
+        {
+            fileToFinish = db.Files.First(f => f.FileID == num);
+            TS_Page = new WorkingBoard.View.TS_WB_ToFinish();
+            LeftSide.Content = TS_Page;
+        }
+
+        public void SetFileFinished(int num)
+        {
+            fileFinished = db.Files.First(f => f.FileID == num);
+            TS_Page = new WorkingBoard.View.TS_WB_ToFinish();
+            LeftSide.Content = TS_Page;
+        }
+
         public void MD_Change(int i)
         {
             Information["oldmode"] = Information["mode"];
             Information["mode"] = i;
+            Information["option"] = i + 1;
+
             UpdateComponents();
         }
 
@@ -69,35 +100,35 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             switch(Information["mode"])
             {
                 case 0:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
                     TS_Page = new WorkingBoard.View.TS_WB_ToDo();
                     MC_Page = new WorkingBoard.View.MC_WB_ToDo();
                     ChangeComponents();
                     break;
 
                 case 1:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main();
-                    TS_Page = null;
+                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    TS_Page = new WorkingBoard.View.TS_WB_InProgress();
                     MC_Page = new WorkingBoard.View.MC_WB_InProgress();
                     ChangeComponents();
                     break;
 
                 case 2:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main();
-                    TS_Page = null;
+                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    TS_Page = new WorkingBoard.View.TS_WB_ToFinish();
                     MC_Page = new WorkingBoard.View.MC_WB_ToFinish();
                     ChangeComponents();
                     break;
 
                 case 3:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
                     TS_Page = null;
                     MC_Page = new WorkingBoard.View.MC_WB_ToTest();
                     ChangeComponents();
                     break;
 
                 case 4:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main();
+                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
                     TS_Page = null;
                     MC_Page = new WorkingBoard.View.MC_WB_Finished();
                     ChangeComponents();

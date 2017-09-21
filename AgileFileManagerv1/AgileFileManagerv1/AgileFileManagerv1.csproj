@@ -162,6 +162,7 @@
     </Compile>
     <Compile Include="FloatWindows\FW_Client\Model\VW_Clients.cs" />
     <Compile Include="WorkingBoard\Controller\WorkingBoardController.cs" />
+    <Compile Include="WorkingBoard\Model\VW_Files.cs" />
     <Compile Include="WorkingBoard\Nodes\WB_ToDo\Controller\WB_ToDoController.cs" />
     <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Client.xaml.cs">
       <DependentUpon>MC_WB_ToDo_Client.xaml</DependentUpon>
@@ -202,8 +203,14 @@
     <Compile Include="WorkingBoard\View\NV_WB_Main.xaml.cs">
       <DependentUpon>NV_WB_Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkingBoard\View\TS_WB_InProgress.xaml.cs">
+      <DependentUpon>TS_WB_InProgress.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkingBoard\View\TS_WB_ToDo.xaml.cs">
       <DependentUpon>TS_WB_ToDo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\View\TS_WB_ToFinish.xaml.cs">
+      <DependentUpon>TS_WB_ToFinish.xaml</DependentUpon>
     </Compile>
     <Page Include="FloatWindows\FW_Client\Controller\FW_Client.xaml">
       <SubType>Designer</SubType>
@@ -289,7 +296,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WorkingBoard\View\TS_WB_InProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WorkingBoard\View\TS_WB_ToDo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\View\TS_WB_ToFinish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,7 +357,6 @@
     <Folder Include="Main\Model\" />
     <Folder Include="Original\Model\" />
     <Folder Include="Original\View\" />
-    <Folder Include="WorkingBoard\Model\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FrameWorkDB\FrameWorkDB.csproj">

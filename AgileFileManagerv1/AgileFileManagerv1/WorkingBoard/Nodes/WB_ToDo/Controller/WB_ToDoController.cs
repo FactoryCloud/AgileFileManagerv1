@@ -50,7 +50,6 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.Controller
             interventions = new List<Intervention>();
             licenses = db.Licenses.Where(c => c.ClientID == client.ClientID).Include(c=> c.application).ToList();
 
-            //this.client = client;
             dealer = client.dealer;
 
             this.Loaded += new RoutedEventHandler(EV_Start);
@@ -100,10 +99,40 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WB_ToDo.Controller
         public void SaveFile()
         {
             file.client = null;
+            if (interventions.Count == 0)
+                file.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
+            else
+            {
+                file.StateID = db.States.First(s => s.Name == "En Progreso").StateID;
+                file.EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID;
+            }
+                
             db.Files.Add(file);
             db.Reports.AddRange(reports);
             db.Interventions.AddRange(interventions);
+
             db.SaveChanges();
+            CT_WB();
+        }
+
+        public void DiscardFile()
+        {
+            CT_WB();
+        }
+
+        public void FinishFile()
+        {
+            file.client = null;
+            file.StateID = db.States.First(s => s.Name == "Terminado").StateID;
+            file.EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID;
+            file.DateEnd = DateTime.Today;
+
+            db.Files.Add(file);
+            db.Reports.AddRange(reports);
+            db.Interventions.AddRange(interventions);
+
+            db.SaveChanges();
+            CT_WB();
         }
 
         public void MD_Change(int i)

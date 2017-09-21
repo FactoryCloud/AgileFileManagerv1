@@ -38,7 +38,7 @@ namespace AgileFileManagerv1.FloatWindows.FW_Client.Controller
             db = new AgileManagerDB();
             viewClients = new Model.VW_Clients();
 
-            DG_Clients.MouseLeftButtonUp += new MouseButtonEventHandler(ProductSelected_Event);
+            DG_Clients.MouseLeftButtonUp += new MouseButtonEventHandler(ClientSelected_Event);
         }
 
         private void EV_Start(object sender, RoutedEventArgs e)
@@ -46,7 +46,7 @@ namespace AgileFileManagerv1.FloatWindows.FW_Client.Controller
             UpdateData();
         }
 
-        private void ProductSelected_Event(object sender, RoutedEventArgs e)
+        private void ClientSelected_Event(object sender, RoutedEventArgs e)
         {
             int num = DG_Clients.SelectedIndex;
             if (num >= 0)
