@@ -157,33 +157,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FloatWindows\FW_Client\Controller\FW_Client.xaml.cs">
-      <DependentUpon>FW_Client.xaml</DependentUpon>
+    <Compile Include="FloatWindows\FW_Clients\Controller\FW_Clients.xaml.cs">
+      <DependentUpon>FW_Clients.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FloatWindows\FW_Client\Model\VW_Clients.cs" />
+    <Compile Include="FloatWindows\FW_File\Controller\FW_File.xaml.cs">
+      <DependentUpon>FW_File.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VW_Clients.cs" />
+    <Compile Include="WorkingBoard\Controller\FileController.cs" />
     <Compile Include="WorkingBoard\Controller\WorkingBoardController.cs" />
-    <Compile Include="WorkingBoard\Model\VW_Files.cs" />
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\Controller\WB_ToDoController.cs" />
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Client.xaml.cs">
-      <DependentUpon>MC_WB_ToDo_Client.xaml</DependentUpon>
+    <Compile Include="Model\VW_Files.cs" />
+    <Compile Include="WorkingBoard\Nodes\CallIn\Controller\WB_CallInController.cs" />
+    <Compile Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Licenses.xaml.cs">
+      <DependentUpon>MC_WB_CallIn_Licenses.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Dealer.xaml.cs">
-      <DependentUpon>MC_WB_ToDo_Dealer.xaml</DependentUpon>
+    <Compile Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Report.xaml.cs">
+      <DependentUpon>MC_WB_CallIn_Report.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Files.xaml.cs">
-      <DependentUpon>MC_WB_ToDo_Files.xaml</DependentUpon>
+    <Compile Include="WorkingBoard\Nodes\CallIn\View\NV_WB_CallIn_Main.xaml.cs">
+      <DependentUpon>NV_WB_CallIn_Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Licenses.xaml.cs">
-      <DependentUpon>MC_WB_ToDo_Licenses.xaml</DependentUpon>
+    <Compile Include="WorkingBoard\Nodes\CallIn\View\TS_WB_CallIn_Main.xaml.cs">
+      <DependentUpon>TS_WB_CallIn_Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Report.xaml.cs">
-      <DependentUpon>MC_WB_ToDo_Report.xaml</DependentUpon>
+    <Compile Include="WorkingBoard\Nodes\Common\MC_WB_Common_Client.xaml.cs">
+      <DependentUpon>MC_WB_Common_Client.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\NV_WB_ToDo_Main.xaml.cs">
-      <DependentUpon>NV_WB_ToDo_Main.xaml</DependentUpon>
+    <Compile Include="WorkingBoard\Nodes\Common\MC_WB_Common_Dealer.xaml.cs">
+      <DependentUpon>MC_WB_Common_Dealer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkingBoard\Nodes\WB_ToDo\View\TS_WB_ToDo_Main.xaml.cs">
-      <DependentUpon>TS_WB_ToDo_Main.xaml</DependentUpon>
+    <Compile Include="WorkingBoard\Nodes\Common\MC_WB_Common_Files.xaml.cs">
+      <DependentUpon>MC_WB_Common_Files.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\Nodes\NewFile\Controller\WB_NewFileController.cs" />
+    <Compile Include="WorkingBoard\Nodes\NewFile\View\MC_WB_NewFile_Report.xaml.cs">
+      <DependentUpon>MC_WB_NewFile_Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\Nodes\NewFile\View\NV_WB_NewFile_Main.xaml.cs">
+      <DependentUpon>NV_WB_NewFile_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\Nodes\NewFile\View\TS_WB_NewFile_Main.xaml.cs">
+      <DependentUpon>TS_WB_NewFile_Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="WorkingBoard\View\MC_WB_Finished.xaml.cs">
       <DependentUpon>MC_WB_Finished.xaml</DependentUpon>
@@ -212,7 +226,11 @@
     <Compile Include="WorkingBoard\View\TS_WB_ToFinish.xaml.cs">
       <DependentUpon>TS_WB_ToFinish.xaml</DependentUpon>
     </Compile>
-    <Page Include="FloatWindows\FW_Client\Controller\FW_Client.xaml">
+    <Page Include="FloatWindows\FW_Clients\Controller\FW_Clients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloatWindows\FW_File\Controller\FW_File.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,33 +262,45 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Client.xaml">
+    <Page Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Licenses.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Dealer.xaml">
+    <Page Include="WorkingBoard\Nodes\CallIn\View\NV_WB_CallIn_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Files.xaml">
+    <Page Include="WorkingBoard\Nodes\CallIn\View\TS_WB_CallIn_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Licenses.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="WorkingBoard\Nodes\Common\MC_WB_Common_Client.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\MC_WB_ToDo_Report.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="WorkingBoard\Nodes\Common\MC_WB_Common_Dealer.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\NV_WB_ToDo_Main.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="WorkingBoard\Nodes\Common\MC_WB_Common_Files.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="WorkingBoard\Nodes\WB_ToDo\View\TS_WB_ToDo_Main.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="WorkingBoard\Nodes\NewFile\View\MC_WB_NewFile_Report.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\NewFile\View\NV_WB_NewFile_Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\NewFile\View\TS_WB_NewFile_Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WorkingBoard\View\MC_WB_Finished.xaml">
       <SubType>Designer</SubType>
@@ -353,7 +383,7 @@
     <Folder Include="Config\Controller\" />
     <Folder Include="Config\Model\" />
     <Folder Include="Config\View\" />
-    <Folder Include="FloatWindows\FW_Client\View\" />
+    <Folder Include="FloatWindows\FW_Clients\View\" />
     <Folder Include="Main\Model\" />
     <Folder Include="Original\Model\" />
     <Folder Include="Original\View\" />

@@ -24,5 +24,11 @@ namespace AgileFileManagerv1.WorkingBoard.View
         {
             InitializeComponent();
         }
+
+        private void EV_StartCallIn(object sender, RoutedEventArgs e)
+        {
+            FloatWindows.FW_Clients.Controller.FW_Clients floatWindow = new FloatWindows.FW_Clients.Controller.FW_Clients();
+            floatWindow.Show();
+        }
     }
 }

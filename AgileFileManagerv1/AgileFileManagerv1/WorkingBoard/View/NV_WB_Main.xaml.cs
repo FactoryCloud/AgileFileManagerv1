@@ -20,11 +20,11 @@ namespace AgileFileManagerv1.WorkingBoard.View
     /// </summary>
     public partial class NV_WB_Main : Page
     {
-        public NV_WB_Main(int option)
+        public NV_WB_Main()
         {
             InitializeComponent();
 
-            switch(option)
+            switch(GetController().Information["option"])
             {
                 case 1:
                     BT_ToDo.Background = new SolidColorBrush(Colors.LightGreen);

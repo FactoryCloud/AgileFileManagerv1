@@ -21,7 +21,7 @@ namespace AgileFileManagerv1.WorkingBoard.View
     /// </summary>
     public partial class MC_WB_ToFinish : Page
     {
-        WorkingBoard.Model.VW_Files viewFiles;
+        Model.VW_Files viewFiles;
         public MC_WB_ToFinish()
         {
             InitializeComponent();

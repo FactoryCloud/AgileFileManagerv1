@@ -12,6 +12,9 @@ namespace FrameWorkDB.V1
         [Required]
         public int EmployeeID { get; set; }
 
+        public int? Code { get; set; }
+        public string Name { get; set; }
+
         [ForeignKey("FK_Employees_DepartmentID_Departments")]
         public int? DepartmentID { get; set; }
         public virtual Department department { get; set; }

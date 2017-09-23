@@ -1,0 +1,102 @@
+﻿<Window x:Class="AgileFileManagerv1.FloatWindows.FW_File.Controller.FW_File"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgileFileManagerv1.FloatWindows.FW_File.Controller"
+        mc:Ignorable="d"
+        Title="FW_File" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="TX_License1" TextAlignment="Center" IsReadOnly="True" VerticalAlignment="Center" Margin="50,0,0,0"></TextBox>
+                <TextBox Name="TX_License2" TextAlignment="Center" IsReadOnly="True" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0"></TextBox>
+                <TextBox Name="TX_License3" TextAlignment="Center" IsReadOnly="True" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,0,0"></TextBox>
+                <TextBox Name="TX_License4" TextAlignment="Center" IsReadOnly="True" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,50,0"></TextBox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">Técnico</Label>
+                <TextBox Name="TB_Employee" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Estado</Label>
+                <TextBox Name="TB_State" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">Fecha Apertura</Label>
+                <TextBox Name="TB_DateStart" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Fecha Finalización</Label>
+                <TextBox Name="TB_DateEnd" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">Incidencia</Label>
+                <TextBox Name="TB_Issue" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >Prioridad</Label>
+                <TextBox Name="TB_Priority" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Name="SP_Reports" Margin="50,0,25,0">
+                </StackPanel>
+                <StackPanel Grid.Column="1" Name="SP_Interventions" Margin="25,0,50,0">
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

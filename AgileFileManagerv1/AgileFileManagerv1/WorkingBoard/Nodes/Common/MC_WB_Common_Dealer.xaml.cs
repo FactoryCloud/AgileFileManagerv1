@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AgileFileManagerv1.WorkingBoard.View
+namespace AgileFileManagerv1.WorkingBoard.Nodes.Common
 {
     /// <summary>
-    /// Interaction logic for TS_WB_ToFinish.xaml
+    /// Interaction logic for MC_WB_Common_Dealer.xaml
     /// </summary>
-    public partial class TS_WB_ToFinish : Page
+    public partial class MC_WB_Common_Dealer : Page
     {
-        public TS_WB_ToFinish()
+        public MC_WB_Common_Dealer()
         {
             InitializeComponent();
-        }
-
-        private void EV_StartCallIn(object sender, RoutedEventArgs e)
-        {
-            FloatWindows.FW_Clients.Controller.FW_Clients floatWindow = new FloatWindows.FW_Clients.Controller.FW_Clients();
-            floatWindow.Show();
         }
     }
 }

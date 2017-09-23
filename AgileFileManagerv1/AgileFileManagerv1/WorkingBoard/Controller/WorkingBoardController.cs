@@ -100,35 +100,35 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             switch(Information["mode"])
             {
                 case 0:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
                     TS_Page = new WorkingBoard.View.TS_WB_ToDo();
                     MC_Page = new WorkingBoard.View.MC_WB_ToDo();
                     ChangeComponents();
                     break;
 
                 case 1:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
                     TS_Page = new WorkingBoard.View.TS_WB_InProgress();
                     MC_Page = new WorkingBoard.View.MC_WB_InProgress();
                     ChangeComponents();
                     break;
 
                 case 2:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
                     TS_Page = new WorkingBoard.View.TS_WB_ToFinish();
                     MC_Page = new WorkingBoard.View.MC_WB_ToFinish();
                     ChangeComponents();
                     break;
 
                 case 3:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
                     TS_Page = null;
                     MC_Page = new WorkingBoard.View.MC_WB_ToTest();
                     ChangeComponents();
                     break;
 
                 case 4:
-                    NV_Page = new WorkingBoard.View.NV_WB_Main(Information["option"]);
+                    NV_Page = new WorkingBoard.View.NV_WB_Main();
                     TS_Page = null;
                     MC_Page = new WorkingBoard.View.MC_WB_Finished();
                     ChangeComponents();
@@ -154,7 +154,7 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
 
                 case 2:
                     MainWindow c = (MainWindow)System.Windows.Application.Current.MainWindow;
-                    c.MainFrame.Content = new WorkingBoard.Nodes.WB_ToDo.Controller.WB_ToDoController(client);
+                    c.MainFrame.Content = new WorkingBoard.Nodes.CallIn.Controller.WB_CallInController(client);
                     break;
             }
         }
