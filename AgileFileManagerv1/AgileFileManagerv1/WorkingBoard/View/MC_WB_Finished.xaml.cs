@@ -31,6 +31,7 @@ namespace AgileFileManagerv1.WorkingBoard.View
             viewFiles = new Model.VW_Files(5);
 
             DG_FilesFinished.MouseLeftButtonUp += new MouseButtonEventHandler(FileSelected_Event);
+            DG_FilesFinished.MouseDoubleClick += new MouseButtonEventHandler(EV_FileOpen);
         }
 
         private void EV_Start(object sender, RoutedEventArgs e)
@@ -45,8 +46,14 @@ namespace AgileFileManagerv1.WorkingBoard.View
             {
                 DataGridRow row = (DataGridRow)DG_FilesFinished.ItemContainerGenerator.ContainerFromIndex(num);
                 DataRowView dr = row.Item as DataRowView;
-                GetController().SetFileToDo(Int32.Parse(dr.Row.ItemArray[0].ToString()));
+                GetController().SetFileFinished(Int32.Parse(dr.Row.ItemArray[0].ToString()));
             }
+        }
+
+        private void EV_FileOpen(object sender, MouseButtonEventArgs e)
+        {
+            FloatWindows.FW_File.Controller.FW_File floatWindow = new FloatWindows.FW_File.Controller.FW_File(GetController().fileFinished);
+            floatWindow.Show();
         }
 
         private void UpdateData()

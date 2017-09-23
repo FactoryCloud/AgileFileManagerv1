@@ -60,7 +60,7 @@ namespace AgileFileManagerv1.Model
                 case 11:
                     Window mainWindow = System.Windows.Application.Current.MainWindow;
                     var a = (MainWindow)mainWindow;
-                    WorkingBoard.Nodes.CallIn.Controller.WB_CallInController CT = (WorkingBoard.Nodes.CallIn.Controller.WB_CallInController)a.MainFrame.Content; ;
+                    WorkingBoard.Controller.FileController CT = (WorkingBoard.Controller.FileController)a.MainFrame.Content; ;
                     client = CT.file.client;
                     dt.Columns.Add("ID", typeof(int));
                     dt.Columns.Add("Código", typeof(int));

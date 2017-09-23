@@ -24,6 +24,8 @@ namespace AgileFileManagerv1.WorkingBoard.View
         {
             InitializeComponent();
 
+            GetController().fileToDo = null;
+            GetController().fileToFinish = null;
             switch(GetController().Information["option"])
             {
                 case 1:

@@ -23,19 +23,19 @@
         <Button Margin="10" Click="EV_StartCallIn">
             <TextBlock TextAlignment="Center">Atender<LineBreak/>Llamada</TextBlock>
         </Button>
-        <Button Margin="10" Grid.Column="1">
+        <Button Margin="10" Grid.Column="1" Click="EV_StartNewFile">
             <TextBlock TextAlignment="Center">Crear<LineBreak/>Expediente</TextBlock>
         </Button>
-        <Button IsEnabled="False" Margin="10" Grid.Row="1">
+        <Button Name="BT_OpenFile" IsEnabled="False" Margin="10" Grid.Row="1" Click="EV_OpenFile">
             <TextBlock TextAlignment="Center">Ver<LineBreak/>Expediente</TextBlock>
         </Button>
-        <Button IsEnabled="False" Margin="10" Grid.Row="1" Grid.Column="1">
+        <Button Name="BT_StartFile" IsEnabled="False" Margin="10" Grid.Row="1" Grid.Column="1" Click="EV_StartFile">
             <TextBlock TextAlignment="Center">Iniciar<LineBreak/>Expediente</TextBlock>
         </Button>
-        <Button IsEnabled="False" Margin="10" Grid.Column="0" Grid.Row="2">
+        <Button Name="BT_FinishFile" IsEnabled="False" Margin="10" Grid.Column="0" Grid.Row="2" Click="EV_FinishFile">
             <TextBlock TextAlignment="Center">Terminar<LineBreak/>Expediente</TextBlock>
         </Button>
-        <Button IsEnabled="False" Margin="10" Grid.Column="1" Grid.Row="2">
+        <Button Name="BT_FreeFile" IsEnabled="False" Margin="10" Grid.Column="1" Grid.Row="2" Click="EV_FreeFile">
             <TextBlock TextAlignment="Center">Liberar<LineBreak/>Expediente</TextBlock>
         </Button>
     </Grid>

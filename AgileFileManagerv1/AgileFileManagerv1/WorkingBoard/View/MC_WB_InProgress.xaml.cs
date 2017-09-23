@@ -20,9 +20,22 @@ namespace AgileFileManagerv1.WorkingBoard.View
     /// </summary>
     public partial class MC_WB_InProgress : Page
     {
+        Model.VW_Lines lines;
         public MC_WB_InProgress()
         {
             InitializeComponent();
+
+            this.Loaded += new RoutedEventHandler(EV_Start);
+            lines = new Model.VW_Lines();
+        }
+
+        private void EV_Start(object sender, RoutedEventArgs e)
+        {
+            List<Grid> grids = lines.GetTable();
+            foreach (Grid grid in grids)
+            {
+                SP_Lines.Children.Add(grid);
+            }
         }
     }
 }

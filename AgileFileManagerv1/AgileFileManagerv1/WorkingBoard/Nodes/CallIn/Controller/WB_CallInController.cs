@@ -45,7 +45,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
             this.Loaded += new RoutedEventHandler(EV_Start);
         }
 
-        public void EV_TS_Update()
+        override public void EV_TS_Update()
         {
             TS_Page = new WorkingBoard.Nodes.CallIn.View.TS_WB_CallIn_Main();
             LeftSide.Content = TS_Page;
@@ -54,36 +54,6 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
         private void EV_Start (object sender, RoutedEventArgs e)
         {
             UpdateComponents();
-        }
-
-        public void SetLicense(int number)
-        {
-            file.license = db.Licenses.First(l => l.LicenseID == number);
-            file.LicenseID = file.license.LicenseID;
-        }
-
-        public void SetIssue(int number)
-        {
-            file.issue = db.Issues.First(i => i.IssueID == number);
-            file.IssueID = file.issue.IssueID;
-            EV_TS_Update();
-        }
-
-        public void SetPriority(int number)
-        {
-            file.priority = db.Priorities.First(i => i.PriorityID == number);
-            file.PriorityID = file.priority.PriorityID;
-            EV_TS_Update();
-        }
-
-        public List<Issue> GetIssues ()
-        {
-            return db.Issues.Include(i => i.department).ToList();
-        }
-
-        public List<Priority> GetPriorities()
-        {
-            return db.Priorities.ToList();
         }
 
         public void SaveFile()
@@ -141,7 +111,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
                 case 2:
                     NV_Page = new WorkingBoard.Nodes.CallIn.View.NV_WB_CallIn_Main();
                     TS_Page = new WorkingBoard.Nodes.CallIn.View.TS_WB_CallIn_Main();
-                    MC_Page = new WorkingBoard.Nodes.CallIn.View.MC_WB_CallIn_Licenses();
+                    MC_Page = new WorkingBoard.Nodes.Common.MC_WB_Common_Licenses();
                     ChangeComponents();
                     break;
 

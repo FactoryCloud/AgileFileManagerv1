@@ -34,6 +34,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
 
             CB_Issues.SelectionChanged += new SelectionChangedEventHandler(EV_Issue);
             CB_Priorities.SelectionChanged += new SelectionChangedEventHandler(EV_Priority);
+            CB_Employees.SelectionChanged += new SelectionChangedEventHandler(EV_Employee);
         }
 
         private void EV_Start(object sender, RoutedEventArgs e)
@@ -58,6 +59,16 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
                 CB_Priorities.Items.Add(temp);
             }
 
+            List<Employee> employees = GetController().GetEmployees();
+
+            foreach (Employee employee in employees)
+            {
+                ComboBoxItem temp = new ComboBoxItem();
+                temp.Content = $"{employee.Code} - {employee.Name}";
+                temp.Name = $"employee{employee.EmployeeID}";
+                CB_Employees.Items.Add(temp);
+            }
+
             CreateReports();
             CreateInterventions();
         }
@@ -77,6 +88,15 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
             if (CB_Issues.SelectedIndex >= 0)
             {
                 GetController().SetIssue(Convert.ToInt32(temp1.Name.Replace("issue", "")));
+            }
+        }
+
+        private void EV_Employee(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem temp1 = (ComboBoxItem)CB_Employees.SelectedItem;
+            if (CB_Employees.SelectedIndex >= 0)
+            {
+                GetController().SetEmployee(Convert.ToInt32(temp1.Name.Replace("employee", "")));
             }
         }
 
@@ -201,11 +221,11 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
             GetController().EV_TS_Update();
         }
 
-        private WorkingBoard.Nodes.CallIn.Controller.WB_CallInController GetController()
+        private WorkingBoard.Nodes.NewFile.Controller.WB_NewFileController GetController()
         {
             Window mainWindow = System.Windows.Application.Current.MainWindow;
             var a = (MainWindow)mainWindow;
-            return (WorkingBoard.Nodes.CallIn.Controller.WB_CallInController)a.MainFrame.Content;
+            return (WorkingBoard.Nodes.NewFile.Controller.WB_NewFileController)a.MainFrame.Content;
         }
     }
 }

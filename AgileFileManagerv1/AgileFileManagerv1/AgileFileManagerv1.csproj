@@ -164,13 +164,11 @@
       <DependentUpon>FW_File.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\VW_Clients.cs" />
+    <Compile Include="Model\VW_Lines.cs" />
     <Compile Include="WorkingBoard\Controller\FileController.cs" />
     <Compile Include="WorkingBoard\Controller\WorkingBoardController.cs" />
     <Compile Include="Model\VW_Files.cs" />
     <Compile Include="WorkingBoard\Nodes\CallIn\Controller\WB_CallInController.cs" />
-    <Compile Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Licenses.xaml.cs">
-      <DependentUpon>MC_WB_CallIn_Licenses.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Report.xaml.cs">
       <DependentUpon>MC_WB_CallIn_Report.xaml</DependentUpon>
     </Compile>
@@ -179,6 +177,9 @@
     </Compile>
     <Compile Include="WorkingBoard\Nodes\CallIn\View\TS_WB_CallIn_Main.xaml.cs">
       <DependentUpon>TS_WB_CallIn_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\Nodes\Common\MC_WB_Common_Licenses.xaml.cs">
+      <DependentUpon>MC_WB_Common_Licenses.xaml</DependentUpon>
     </Compile>
     <Compile Include="WorkingBoard\Nodes\Common\MC_WB_Common_Client.xaml.cs">
       <DependentUpon>MC_WB_Common_Client.xaml</DependentUpon>
@@ -262,10 +263,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Licenses.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="WorkingBoard\Nodes\CallIn\View\MC_WB_CallIn_Report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,6 +274,10 @@
     <Page Include="WorkingBoard\Nodes\CallIn\View\TS_WB_CallIn_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\Common\MC_WB_Common_Licenses.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WorkingBoard\Nodes\Common\MC_WB_Common_Client.xaml">
       <Generator>MSBuild:Compile</Generator>

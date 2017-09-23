@@ -46,11 +46,11 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
             GetController().FinishFile();
         }
 
-        private WorkingBoard.Nodes.CallIn.Controller.WB_CallInController GetController()
+        private WorkingBoard.Nodes.NewFile.Controller.WB_NewFileController GetController()
         {
             Window mainWindow = Application.Current.MainWindow;
             var a = (MainWindow)mainWindow;
-            return (WorkingBoard.Nodes.CallIn.Controller.WB_CallInController)a.MainFrame.Content;
+            return (WorkingBoard.Nodes.NewFile.Controller.WB_NewFileController)a.MainFrame.Content;
         }
     }
 }

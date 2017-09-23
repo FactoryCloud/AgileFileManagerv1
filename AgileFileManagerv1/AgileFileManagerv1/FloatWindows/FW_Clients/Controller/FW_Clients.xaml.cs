@@ -28,8 +28,9 @@ namespace AgileFileManagerv1.FloatWindows.FW_Clients.Controller
         Model.VW_Clients viewClients;
         Client client;
         AgileManagerDB db;
+        int mode;
 
-        public FW_Clients()
+        public FW_Clients(int mode)
         {
             InitializeComponent();
 
@@ -37,6 +38,8 @@ namespace AgileFileManagerv1.FloatWindows.FW_Clients.Controller
 
             db = new AgileManagerDB();
             viewClients = new Model.VW_Clients();
+
+            this.mode = mode;
 
             DG_Clients.MouseLeftButtonUp += new MouseButtonEventHandler(ClientSelected_Event);
         }
@@ -65,7 +68,17 @@ namespace AgileFileManagerv1.FloatWindows.FW_Clients.Controller
 
         private void EV_ClientSelect(object sender, RoutedEventArgs e)
         {
-            GetController().CT_StartFile(client);
+            switch(mode)
+            {
+                case 1:
+                    GetController().CT_CallInFile(client);
+                    break;
+
+                case 2:
+                    GetController().CT_NewFile(client);
+                    break;
+            }
+            
             this.Close();
         }
 

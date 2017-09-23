@@ -14,14 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FrameWorkDB.V1;
 
-namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
+namespace AgileFileManagerv1.WorkingBoard.Nodes.Common
 {
     /// <summary>
-    /// Interaction logic for MC_WB_CallIn_Licenses.xaml
+    /// Interaction logic for MC_WB_Common_Licenses.xaml
     /// </summary>
-    public partial class MC_WB_CallIn_Licenses : Page
+    public partial class MC_WB_Common_Licenses : Page
     {
-        public MC_WB_CallIn_Licenses()
+        public MC_WB_Common_Licenses()
         {
             InitializeComponent();
 
@@ -29,7 +29,6 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
             foreach(var item in GetController().licenses)
             {
-                ListBoxItem temp = new ListBoxItem();
                 Grid grid = new Grid();
                 if (item.DateEnd < DateTime.Now)
                     grid.Background = Brushes.Red;
@@ -79,15 +78,6 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
                 grid.Children.Add(button1);
                 grid.Children.Add(button2);
 
-                //temp.Content = grid;
-                temp.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-                temp.Margin = new Thickness(15);
-                temp.Padding = new Thickness(15);
-                temp.IsHitTestVisible = false;
-                if (item.DateEnd < DateTime.Now)
-                    temp.Background = Brushes.Red;
-                else
-                    temp.Background = Brushes.Green;
                 SP_Licenses.Children.Add(grid);
             }
             
@@ -95,7 +85,6 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
         private void EV_License(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show($"{(sender as Button).Tag}");
             GetController().SetLicense(Convert.ToInt32((sender as Button).Tag));
             GetController().MD_Change(3);
         }
@@ -105,11 +94,11 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
             
         }
 
-        private WorkingBoard.Nodes.CallIn.Controller.WB_CallInController GetController()
+        private WorkingBoard.Controller.FileController GetController()
         {
             Window mainWindow = System.Windows.Application.Current.MainWindow;
             var a = (MainWindow)mainWindow;
-            return (WorkingBoard.Nodes.CallIn.Controller.WB_CallInController)a.MainFrame.Content;
+            return (WorkingBoard.Controller.FileController)a.MainFrame.Content;
         }
     }
 }

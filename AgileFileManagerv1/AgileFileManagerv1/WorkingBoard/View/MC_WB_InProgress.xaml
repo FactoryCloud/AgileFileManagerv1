@@ -8,7 +8,10 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="MC_WB_InProgress">
 
-    <Grid>
-        
+    <Grid Name="MainGrid">
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Name="SP_Lines">
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

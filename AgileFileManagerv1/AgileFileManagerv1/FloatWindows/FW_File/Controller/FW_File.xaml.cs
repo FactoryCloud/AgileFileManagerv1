@@ -35,9 +35,10 @@ namespace AgileFileManagerv1.FloatWindows.FW_File.Controller
             db = new AgileManagerDB();
             reports = db.Reports.Where(r => r.FileID == file.FileID).Include(r => r.employee).ToList();
             interventions = db.Interventions.Where(r => r.FileID == file.FileID).Include(i => i.employee).ToList();
+            FrameWorkDB.V1.Application app = db.Applications.First(a => a.ApplicationID == file.license.ApplicationID);
 
-            TX_License1.Text = file.license.application.Name;
-            TX_License2.Text = $"Versión {file.license.application.Version}";
+            TX_License1.Text = app.Name;
+            TX_License2.Text = $"Versión {app.Version}";
             TX_License4.Text = $"Fin mantenimiento {String.Format("{0:dd/MM/yyyy}", file.license.DateEnd)}";
 
             if(file.employee!= null)

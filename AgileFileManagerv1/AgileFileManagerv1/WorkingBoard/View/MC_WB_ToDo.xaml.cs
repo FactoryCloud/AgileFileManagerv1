@@ -31,6 +31,7 @@ namespace AgileFileManagerv1.WorkingBoard.View
             viewFiles = new Model.VW_Files(1);
 
             DG_FilesPending.MouseLeftButtonUp += new MouseButtonEventHandler(FileSelected_Event);
+            DG_FilesPending.MouseDoubleClick += new MouseButtonEventHandler(EV_FileOpen);
         }
 
         private void EV_Start(object sender, RoutedEventArgs e)
@@ -47,6 +48,12 @@ namespace AgileFileManagerv1.WorkingBoard.View
                 DataRowView dr = row.Item as DataRowView;
                 GetController().SetFileToDo(Int32.Parse(dr.Row.ItemArray[0].ToString()));
             }
+        }
+
+        private void EV_FileOpen(object sender, MouseButtonEventArgs e)
+        {
+            FloatWindows.FW_File.Controller.FW_File floatWindow = new FloatWindows.FW_File.Controller.FW_File(GetController().fileToDo);
+            floatWindow.Show();
         }
 
         private void UpdateData()
