@@ -61,12 +61,18 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
 
             List<Employee> employees = GetController().GetEmployees();
 
+            int count = 0;
             foreach (Employee employee in employees)
             {
                 ComboBoxItem temp = new ComboBoxItem();
                 temp.Content = $"{employee.Code} - {employee.Name}";
                 temp.Name = $"employee{employee.EmployeeID}";
                 CB_Employees.Items.Add(temp);
+                if (employee.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID)
+                {
+                    CB_Employees.SelectedIndex = count;
+                }
+                count++;
             }
 
             CreateReports();
