@@ -79,6 +79,16 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             LeftSide.Content = TS_Page;
         }
 
+        public int IP_GetInterventions()
+        {
+            return db.Interventions.Where(i => i.FileID == fileInProgress.FileID).ToList().Count;
+        }
+
+        public int TF_GetInterventions()
+        {
+            return db.Interventions.Where(i => i.FileID == fileToFinish.FileID).ToList().Count;
+        }
+
         public void MD_Change(int i)
         {
             Information["oldmode"] = Information["mode"];

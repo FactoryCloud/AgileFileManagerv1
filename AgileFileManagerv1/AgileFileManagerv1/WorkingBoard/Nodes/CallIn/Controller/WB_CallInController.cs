@@ -63,7 +63,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
                 file.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
             else
             {
-                file.StateID = db.States.First(s => s.Name == "En Progreso").StateID;
+                file.StateID = db.States.First(s => s.Name == "Por Terminar").StateID;
                 file.EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID;
             }
                 
