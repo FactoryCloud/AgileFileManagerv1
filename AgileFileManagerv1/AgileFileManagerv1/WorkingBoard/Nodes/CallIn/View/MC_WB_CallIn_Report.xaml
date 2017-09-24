@@ -21,6 +21,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.8*"/>
             </Grid.RowDefinitions>
             <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
@@ -88,6 +89,19 @@
                 <ComboBox Name="CB_Priorities" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="25,0,25,0"></ComboBox>
                 <Label Grid.Column="1" Content="Fecha creación" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <DatePicker Grid.Row="1" Grid.Column="1" Name="DP_DateStart" VerticalAlignment="Top" HorizontalAlignment="Center" SelectedDateChanged="DateStart_SelectedDateChanged"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Técnico</Label>
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="50,0,0,0" VerticalAlignment="Top"></TextBox>
+                <ComboBox Name="CB_Employees" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0"></ComboBox>
             </Grid>
         </Grid>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">

@@ -34,11 +34,30 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             Information.Add("option", 3);
 
             db = new AgileManagerDB();
-            reports = new List<Report>();
+            
             file = new File();
             file.client = client;
             file.ClientID = client.ClientID;
+
+            reports = new List<Report>();
             interventions = new List<Intervention>();
+
+            reports.Add(new Report
+            {
+                Date = DateTime.Now,
+                EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
+                file = file,
+                Description = ""
+            });
+
+            interventions.Add(new Intervention
+            {
+                Date = DateTime.Now,
+                EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
+                file = file,
+                Description = ""
+            });
+
             licenses = db.Licenses.Where(c => c.ClientID == client.ClientID).Include(c=> c.application).ToList();
 
             dealer = client.dealer;
@@ -66,8 +85,8 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
                 file.StateID = db.States.First(s => s.Name == "Por Terminar").StateID;
 
             db.Files.Add(file);
-            db.Reports.AddRange(reports);
-            db.Interventions.AddRange(interventions);
+            db.Reports.Add(reports.Last());
+            db.Interventions.Add(interventions.Last());
 
             db.SaveChanges();
             CT_WB();

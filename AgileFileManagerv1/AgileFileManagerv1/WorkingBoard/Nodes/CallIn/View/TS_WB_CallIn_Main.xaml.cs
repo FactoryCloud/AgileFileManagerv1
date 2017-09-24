@@ -29,6 +29,12 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
             if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Count > 0 && GetController().interventions.Count > 0)
                 BT_FinishFile.IsEnabled = true;
+
+            if (GetController().Information["option"] == 5)
+                BT_LoadFile.Visibility = Visibility.Visible;
+
+            if (GetController().FS_Selectable())
+                BT_LoadFile.IsEnabled = true;
         }
 
         private void EV_SaveFile(object sender, RoutedEventArgs e)
@@ -44,6 +50,11 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
         private void EV_FinishFile(object sender, RoutedEventArgs e)
         {
             GetController().FinishFile();
+        }
+
+        private void EV_LoadFile(object sender, RoutedEventArgs e)
+        {
+            GetController().CT_WorkFile();
         }
 
         private WorkingBoard.Nodes.CallIn.Controller.WB_CallInController GetController()

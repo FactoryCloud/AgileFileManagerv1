@@ -68,6 +68,7 @@ namespace AgileFileManagerv1.Model
                     dt.Columns.Add("Técnico", typeof(string));
                     dt.Columns.Add("Fecha Inicio", typeof(string));
                     dt.Columns.Add("Fecha Finalización", typeof(string));
+                    dt.Columns.Add("Estado", typeof(string));
                     dt.Columns.Add("Prioridad", typeof(string));
                     dt.Columns.Add("Problema", typeof(string));
                     break;
@@ -103,7 +104,8 @@ namespace AgileFileManagerv1.Model
 
                 case 11:
                     files = db.Files.Where(f => (f.ClientID == client.ClientID))
-                        .Include(f => f.client).Include(f => f.priority).Include(f => f.issue).Include(f=> f.license).Include(f=> f.employee).ToList();
+                        .Include(f => f.client).Include(f => f.priority).Include(f => f.issue)
+                        .Include(f=> f.license).Include(f=> f.employee).Include(f=> f.state).ToList();
                     break;
 
                 default:
@@ -136,7 +138,8 @@ namespace AgileFileManagerv1.Model
                         FrameWorkDB.V1.Application app = db.Applications.First(a => a.ApplicationID == item.license.ApplicationID);
                         if(item.employee != null)
                             dt.Rows.Add(item.FileID, item.Code, $"{item.license.Code} {app.Name} {app.Version}", $"{item.employee.Code} {item.employee.Name}",
-                                $"{String.Format("{0:dd/MM/yyyy}", item.DateStart)}", $"{String.Format("{0:dd/MM/yyyy}", item.DateEnd)}", item.priority.Name, item.issue.Name);
+                                $"{String.Format("{0:dd/MM/yyyy}", item.DateStart)}", $"{String.Format("{0:dd/MM/yyyy}", item.DateEnd)}", 
+                                item.state.Name ,item.priority.Name, item.issue.Name);
                         else
                             dt.Rows.Add(item.FileID, item.Code, $"{item.license.Code} {app.Name} {app.Version}", $"",
                                 $"{String.Format("{0:dd/MM/yyyy}", item.DateStart)}", $"{String.Format("{0:dd/MM/yyyy}", item.DateEnd)}", item.priority.Name, item.issue.Name);

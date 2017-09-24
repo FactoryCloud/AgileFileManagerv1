@@ -34,6 +34,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
             CB_Issues.SelectionChanged += new SelectionChangedEventHandler(EV_Issue);
             CB_Priorities.SelectionChanged += new SelectionChangedEventHandler(EV_Priority);
+            CB_Employees.SelectionChanged += new SelectionChangedEventHandler(EV_Employee);
         }
 
         private void EV_Start(object sender, RoutedEventArgs e)
@@ -58,6 +59,27 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
                 CB_Priorities.Items.Add(temp);
             }
 
+            List<Employee> employees = GetController().GetEmployees();
+
+            ComboBoxItem temp1 = new ComboBoxItem();
+            temp1.Content = "";
+            temp1.Name = $"employee0";
+            CB_Employees.Items.Add(temp1);
+
+            int count = 1;
+            foreach (Employee employee in employees)
+            {
+                ComboBoxItem temp = new ComboBoxItem();
+                temp.Content = $"{employee.Code} - {employee.Name}";
+                temp.Name = $"employee{employee.EmployeeID}";
+                CB_Employees.Items.Add(temp);
+                if (employee.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID)
+                {
+                    CB_Employees.SelectedIndex = count;
+                }
+                count++;
+            }
+
             CreateReports();
             CreateInterventions();
         }
@@ -80,6 +102,15 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
             }
         }
 
+        private void EV_Employee(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem temp1 = (ComboBoxItem)CB_Employees.SelectedItem;
+            if (CB_Employees.SelectedIndex >= 0)
+            {
+                GetController().SetEmployee(Convert.ToInt32(temp1.Name.Replace("employee", "")));
+            }
+        }
+
         public void DateStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             var picker = sender as DatePicker;
@@ -99,16 +130,14 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
         private void CreateReports()
         {
-            int num = GetController().reports.Count + 1;
+            int num = GetController().reports.Count;
 
             for(int i=0; i<num; i++)
             {
                 StackPanel panel = new StackPanel();
                 Label label = new Label();
-                if (i < num - 1)
-                    label.Content = $"Reporte de {GetController().reports[i].Date}";
-                else
-                    label.Content = "Reporte";
+                label.Content = $"Reporte de {((MainWindow)System.Windows.Application.Current.MainWindow).employee.Code} - {((MainWindow)System.Windows.Application.Current.MainWindow).employee.Name} " +
+                    $"{ GetController().reports[i].Date}";
                 TextBox text = new TextBox();
                 text.MinHeight = 150;
                 text.TextWrapping = TextWrapping.Wrap;
@@ -116,8 +145,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
                 text.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
                 text.Tag = i;
                 text.KeyUp += new KeyEventHandler(EV_Reports);
-                if (i < num - 1)
-                    text.Text = $"{GetController().reports[i].Description}";
+                text.Text = $"{GetController().reports[i].Description}";
 
                 panel.Children.Add(label);
                 panel.Children.Add(text);
@@ -127,40 +155,20 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
         private void EV_Reports(object sender, KeyEventArgs e)
         {
-            if ((sender as TextBox).Text.Length > 0)
-            {
-                if (GetController().reports.Count <= Convert.ToInt32((sender as TextBox).Tag))
-                {
-                    //MessageBox.Show("nuevo reporte");
-                    GetController().reports.Add(new Report
-                    {
-                        file = GetController().file,
-                        EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
-                        Description = (sender as TextBox).Text,
-                        Date = DateTime.Now,
-                    });
-                }
-                else
-                {
-                    //MessageBox.Show("actualizo reporte");
-                    GetController().reports[Convert.ToInt32((sender as TextBox).Tag)].Description = (sender as TextBox).Text;
-                }
-            }
+            GetController().reports[Convert.ToInt32((sender as TextBox).Tag)].Description = (sender as TextBox).Text;
             GetController().EV_TS_Update();
         }
 
         private void CreateInterventions()
         {
-            int num = GetController().interventions.Count + 1;
+            int num = GetController().interventions.Count;
 
             for (int i = 0; i < num; i++)
             {
                 StackPanel panel = new StackPanel();
                 Label label = new Label();
-                if (i < num - 1)
-                    label.Content = $"Intervención de {GetController().interventions[i].Date}";
-                else
-                    label.Content = "Intervención";
+                label.Content = $"Intervención de {((MainWindow)System.Windows.Application.Current.MainWindow).employee.Code} - {((MainWindow)System.Windows.Application.Current.MainWindow).employee.Name} " +
+                        $"{ GetController().interventions[i].Date}";
                 TextBox text = new TextBox();
                 text.MinHeight = 150;
                 text.TextWrapping = TextWrapping.Wrap;
@@ -168,8 +176,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
                 text.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
                 text.Tag = i;
                 text.KeyUp += new KeyEventHandler(EV_Interventions);
-                if (i < num - 1)
-                    text.Text = $"{GetController().interventions[i].Description}";
+                text.Text = $"{GetController().interventions[i].Description}";
 
                 panel.Children.Add(label);
                 panel.Children.Add(text);
@@ -179,25 +186,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
 
         private void EV_Interventions(object sender, KeyEventArgs e)
         {
-            if ((sender as TextBox).Text.Length > 0)
-            {
-                if (GetController().interventions.Count <= Convert.ToInt32((sender as TextBox).Tag))
-                {
-                    //MessageBox.Show("nueva intervencion");
-                    GetController().interventions.Add(new Intervention
-                    {
-                        file = GetController().file,
-                        EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
-                        Description = (sender as TextBox).Text,
-                        Date = DateTime.Now,
-                    });
-                }
-                else
-                {
-                    //MessageBox.Show("actualizo intervencion");
-                    GetController().interventions[Convert.ToInt32((sender as TextBox).Tag)].Description = (sender as TextBox).Text;
-                }
-            }
+            GetController().interventions[Convert.ToInt32((sender as TextBox).Tag)].Description = (sender as TextBox).Text;
             GetController().EV_TS_Update();
         }
 

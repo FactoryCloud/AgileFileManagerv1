@@ -29,5 +29,8 @@
         <Button Name="BT_FinishFile" IsEnabled="false" Margin="10" Grid.Row="1" Click="EV_FinishFile">
             <TextBlock TextAlignment="Center">Terminar<LineBreak/>Expediente</TextBlock>
         </Button>
+        <Button Name="BT_LoadFile" IsEnabled="false" Visibility="Hidden" Margin="10" Grid.Row="1" Grid.Column="1" Click="EV_LoadFile">
+            <TextBlock TextAlignment="Center">Cargar<LineBreak/>Expediente</TextBlock>
+        </Button>
     </Grid>
 </Page>

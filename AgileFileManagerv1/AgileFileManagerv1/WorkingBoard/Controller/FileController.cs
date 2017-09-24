@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FrameWorkDB.V1;
 using Microsoft.EntityFrameworkCore;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace AgileFileManagerv1.WorkingBoard.Controller
 {
@@ -23,9 +24,21 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
         public List<Intervention> interventions;
         internal AgileManagerDB db;
 
+        public bool FS_Selectable()
+        {
+            if (fileSelected != null)
+            {
+                return (fileSelected.StateID == 1 || fileSelected.StateID == 3 || fileSelected.StateID == 4);
+            }    
+
+            else
+                return false;
+        }
+
         public void SetFileSelected(int num)
         {
             fileSelected = db.Files.Where(f => f.FileID == num).Include(f => f.employee).Include(f => f.state).Include(f => f.issue).Include(f => f.priority).First();
+            EV_TS_Update();
         }
 
         public void SetLicense(int number)
@@ -50,8 +63,18 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
 
         public void SetEmployee(int number)
         {
-            file.employee = db.Employees.First(i => i.EmployeeID == number);
-            file.EmployeeID = file.employee.EmployeeID;
+            if (number == 0)
+            {
+                file.employee = null;
+                file.EmployeeID = null;
+            }
+
+            else
+            {
+                file.employee = db.Employees.First(i => i.EmployeeID == number);
+                file.EmployeeID = file.employee.EmployeeID;
+            }
+
             EV_TS_Update();
         }
 
@@ -89,6 +112,12 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             ChangeController();
         }
 
+        public void CT_WorkFile()
+        {
+            Information["controller"] = 4;
+            ChangeController();
+        }
+
         virtual public void UpdateComponents()
         { }
 
@@ -109,6 +138,10 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
                 case 1:
                     MainWindow b = (MainWindow)System.Windows.Application.Current.MainWindow;
                     b.MainFrame.Content = new WorkingBoard.Controller.WorkingBoardController();
+                    break;
+                case 4:
+                    MainWindow e = (MainWindow)System.Windows.Application.Current.MainWindow;
+                    e.MainFrame.Content = new WorkingBoard.Nodes.WorkFile.Controller.WB_WorkFileController(fileSelected);
                     break;
             }
         }

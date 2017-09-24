@@ -36,9 +36,25 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.Controller
            
             this.file = new File();
             this.file = db.Files.Where(f => f.FileID == file.FileID)
-                        .Include(f => f.client).Include(f=> f.client.dealer).Include(f => f.priority).Include(f => f.issue).First();
+                        .Include(f => f.client).Include(f=> f.client.dealer).Include(f => f.priority)
+                        .Include(f => f.issue).Include(f => f.employee).First();
             reports = db.Reports.Where(r => r.FileID == file.FileID).ToList();
+            reports.Add(new Report
+            {
+                Date = DateTime.Now,
+                EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
+                FileID = file.FileID
+            });
+
             interventions = db.Interventions.Where(r => r.FileID == file.FileID).ToList();
+            interventions.Add(new Intervention
+            {
+                Date = DateTime.Now,
+                EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
+                FileID = file.FileID,
+                Description = ""
+            });
+
             licenses = db.Licenses.Where(c => c.ClientID == this.file.client.ClientID).Include(c=> c.application).ToList();
 
             dealer = this.file.client.dealer;
@@ -59,15 +75,34 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.Controller
 
         public void SaveFile()
         {
-            file.client = null;
-            if (file.EmployeeID == null)
-                file.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
-            else
-                file.StateID = db.States.First(s => s.Name == "En Progreso").StateID;
+            db.Files.Update(file);
 
-            db.Files.Add(file);
-            db.Reports.AddRange(reports);
-            db.Interventions.AddRange(interventions);
+            foreach(Report report in reports.Take(reports.Count-1))
+            {
+                if(report.Description.Length > 0)
+                    db.Reports.Update(report);
+                else
+                    db.Reports.Remove(report);
+            }
+
+            if (reports.Last().Description != null)
+            {
+                if(reports.Last().Description.Length > 0)
+                    db.Reports.Add(reports.Last());
+            }
+
+            foreach (Intervention intervention in interventions.Take(interventions.Count - 1))
+            {
+                if (intervention.Description.Length > 0)
+                    db.Interventions.Update(intervention);
+                else
+                    db.Interventions.Remove(intervention);
+            }
+            if (interventions.Last().Description != null)
+            {
+                if (interventions.Last().Description.Length > 0)
+                    db.Interventions.Add(interventions.Last());
+            }
 
             db.SaveChanges();
             CT_WB();
