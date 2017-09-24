@@ -29,11 +29,10 @@ namespace AgileFileManagerv1.WorkingBoard.View
                 BT_OpenFile.IsEnabled = true;
                 BT_SaveFile.IsEnabled = true;
                 BT_FreeFile.IsEnabled = true;
-            }
-
-            if(GetController().IP_GetInterventions() > 0)
-            {
-                BT_FinishFile.IsEnabled = true;
+                if (GetController().IP_GetInterventions() > 0)
+                {
+                    BT_FinishFile.IsEnabled = true;
+                }
             }
         }
 

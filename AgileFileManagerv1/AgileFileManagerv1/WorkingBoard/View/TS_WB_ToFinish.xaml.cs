@@ -29,11 +29,12 @@ namespace AgileFileManagerv1.WorkingBoard.View
                 BT_OpenFile.IsEnabled = true;
                 BT_StartFile.IsEnabled = true;
                 BT_FreeFile.IsEnabled = true;
+                if (GetController().TF_GetInterventions() > 0)
+                {
+                    BT_FinishFile.IsEnabled = true;
+                }
             }
-            if(GetController().TF_GetInterventions() > 0)
-            {
-                BT_FinishFile.IsEnabled = true;
-            }
+            
         }
 
         private void EV_StartCallIn(object sender, RoutedEventArgs e)
