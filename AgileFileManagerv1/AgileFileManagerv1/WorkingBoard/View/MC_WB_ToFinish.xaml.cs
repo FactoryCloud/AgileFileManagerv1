@@ -52,8 +52,11 @@ namespace AgileFileManagerv1.WorkingBoard.View
 
         private void EV_FileOpen(object sender, MouseButtonEventArgs e)
         {
-            FloatWindows.FW_File.Controller.FW_File floatWindow = new FloatWindows.FW_File.Controller.FW_File(GetController().fileToFinish);
-            floatWindow.Show();
+            if (GetController().fileToFinish != null)
+            {
+                FloatWindows.FW_File.Controller.FW_File floatWindow = new FloatWindows.FW_File.Controller.FW_File(GetController().fileToFinish);
+                floatWindow.Show();
+            }
         }
 
         private void UpdateData()

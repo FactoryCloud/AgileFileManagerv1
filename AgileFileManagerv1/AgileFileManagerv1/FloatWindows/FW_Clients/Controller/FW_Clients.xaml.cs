@@ -69,18 +69,21 @@ namespace AgileFileManagerv1.FloatWindows.FW_Clients.Controller
 
         private void EV_ClientOpen(object sender, RoutedEventArgs e)
         {
-            switch(mode)
+            if (client != null)
             {
-                case 1:
-                    GetController().CT_CallInFile(client);
-                    break;
+                switch (mode)
+                {
+                    case 1:
+                        GetController().CT_CallInFile(client);
+                        break;
 
-                case 2:
-                    GetController().CT_NewFile(client);
-                    break;
+                    case 2:
+                        GetController().CT_NewFile(client);
+                        break;
+                }
+
+                this.Close();
             }
-            
-            this.Close();
         }
 
         private WorkingBoard.Controller.WorkingBoardController GetController()
