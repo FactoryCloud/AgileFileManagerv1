@@ -24,7 +24,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
         {
             InitializeComponent();
 
-            if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Count > 0)
+            if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Last().Description.Length > 0)
                 BT_SaveFile.IsEnabled = true;
 
             if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Count > 0 && (GetController().interventions.Count > 1 || GetController().interventions.Last().Description.Length > 0)
