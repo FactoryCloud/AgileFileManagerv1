@@ -110,13 +110,37 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.Controller
 
         public void FinishFile()
         {
-            file.client = null;
-            file.StateID = db.States.First(s => s.Name == "Terminado").StateID;
+            file.StateID = 5;
             file.DateEnd = DateTime.Today;
+            db.Files.Update(file);
 
-            db.Files.Add(file);
-            db.Reports.AddRange(reports);
-            db.Interventions.AddRange(interventions);
+            foreach (Report report in reports.Take(reports.Count - 1))
+            {
+                if (report.Description.Length > 0)
+                    db.Reports.Update(report);
+                else
+                    db.Reports.Remove(report);
+            }
+
+            if (reports.Last().Description != null)
+            {
+                if (reports.Last().Description.Length > 0)
+                    db.Reports.Add(reports.Last());
+            }
+
+            foreach (Intervention intervention in interventions.Take(interventions.Count - 1))
+            {
+                if (intervention.Description.Length > 0)
+                    db.Interventions.Update(intervention);
+                else
+                    db.Interventions.Remove(intervention);
+            }
+
+            if (interventions.Last().Description != null)
+            {
+                if (interventions.Last().Description.Length > 0)
+                    db.Interventions.Add(interventions.Last());
+            }
 
             db.SaveChanges();
             CT_WB();

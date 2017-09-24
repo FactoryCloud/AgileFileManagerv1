@@ -99,8 +99,8 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             file.DateEnd = DateTime.Today;
 
             db.Files.Add(file);
-            db.Reports.AddRange(reports);
-            db.Interventions.AddRange(interventions);
+            db.Reports.Add(reports.Last());
+            db.Interventions.Add(interventions.Last());
 
             db.SaveChanges();
             CT_WB();
