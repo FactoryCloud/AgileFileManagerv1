@@ -90,6 +90,7 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
 
         public void MD_FinishFileToFinish()
         {
+            fileToFinish.DateEnd = DateTime.Today;
             fileToFinish.StateID = db.States.First(s => s.Name == "Terminado").StateID;
             db.Files.Update(fileToFinish);
             db.SaveChanges();
@@ -105,6 +106,44 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             db.SaveChanges();
             MC_Page = new WorkingBoard.View.MC_WB_ToFinish();
             MainContent.Content = MC_Page;
+        }
+
+        public void MD_SaveFileInProgress()
+        {
+            fileInProgress.StateID = db.States.First(s => s.Name == "Por Terminar").StateID;
+            db.Files.Update(fileInProgress);
+            db.SaveChanges();
+            fileInProgress = null;
+            MC_Page = new WorkingBoard.View.MC_WB_InProgress();
+            TS_Page = new WorkingBoard.View.TS_WB_InProgress();
+            MainContent.Content = MC_Page;
+            LeftSide.Content = TS_Page;
+        }
+
+        public void MD_FreeFileInProgress()
+        {
+            fileInProgress.EmployeeID = null;
+            fileInProgress.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
+            db.Files.Update(fileInProgress);
+            db.SaveChanges();
+            fileInProgress = null;
+            MC_Page = new WorkingBoard.View.MC_WB_InProgress();
+            TS_Page = new WorkingBoard.View.TS_WB_InProgress();
+            MainContent.Content = MC_Page;
+            LeftSide.Content = TS_Page;
+        }
+
+        public void MD_FinishFileInProgress()
+        {
+            fileInProgress.DateEnd = DateTime.Today;
+            fileInProgress.StateID = db.States.First(s => s.Name == "Terminado").StateID;
+            db.Files.Update(fileInProgress);
+            db.SaveChanges();
+            fileInProgress = null;
+            MC_Page = new WorkingBoard.View.MC_WB_InProgress();
+            TS_Page = new WorkingBoard.View.TS_WB_InProgress();
+            MainContent.Content = MC_Page;
+            LeftSide.Content = TS_Page;
         }
 
         public void CT_Main()
@@ -154,6 +193,12 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
             db.Files.Update(fileToFinish);
             db.SaveChanges();
             Information["controller"] = 0;
+            ChangeController();
+        }
+
+        public void CT_WorkFile()
+        {
+            Information["controller"] = 4;
             ChangeController();
         }
 
@@ -226,6 +271,10 @@ namespace AgileFileManagerv1.WorkingBoard.Controller
                 case 3:
                     MainWindow d = (MainWindow)System.Windows.Application.Current.MainWindow;
                     d.MainFrame.Content = new WorkingBoard.Nodes.NewFile.Controller.WB_NewFileController(client);
+                    break;
+                case 4:
+                    MainWindow e = (MainWindow)System.Windows.Application.Current.MainWindow;
+                    e.MainFrame.Content = new WorkingBoard.Nodes.WorkFile.Controller.WB_WorkFileController(fileInProgress);
                     break;
             }
         }

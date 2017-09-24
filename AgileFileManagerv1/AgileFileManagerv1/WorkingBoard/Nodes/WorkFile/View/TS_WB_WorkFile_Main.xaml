@@ -1,0 +1,33 @@
+﻿<Page x:Class="AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.View.TS_WB_WorkFile_Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="TS_WB_WorkFile_Main">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Name="BT_SaveFile" IsEnabled="False" Margin="10" Click="EV_SaveFile">
+            <TextBlock TextAlignment="Center">Guardar<LineBreak/>Expediente</TextBlock>
+        </Button>
+        <Button Margin="10" Grid.Column="1" Click="EV_DiscardFile">
+            <TextBlock TextAlignment="Center">Descartar<LineBreak/>Cambios</TextBlock>
+        </Button>
+        <Button Name="BT_FinishFile" IsEnabled="false" Margin="10" Grid.Row="1" Click="EV_FinishFile">
+            <TextBlock TextAlignment="Center">Terminar<LineBreak/>Expediente</TextBlock>
+        </Button>
+    </Grid>
+</Page>

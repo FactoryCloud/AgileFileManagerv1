@@ -200,6 +200,16 @@
     <Compile Include="WorkingBoard\Nodes\NewFile\View\TS_WB_NewFile_Main.xaml.cs">
       <DependentUpon>TS_WB_NewFile_Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkingBoard\Nodes\WorkFile\Controller\WB_WorkFileController.cs" />
+    <Compile Include="WorkingBoard\Nodes\WorkFile\View\MC_WB_WorkFile_Report.xaml.cs">
+      <DependentUpon>MC_WB_WorkFile_Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\Nodes\WorkFile\View\NV_WB_WorkFile_Main.xaml.cs">
+      <DependentUpon>NV_WB_WorkFile_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingBoard\Nodes\WorkFile\View\TS_WB_WorkFile_Main.xaml.cs">
+      <DependentUpon>TS_WB_WorkFile_Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkingBoard\View\MC_WB_Finished.xaml.cs">
       <DependentUpon>MC_WB_Finished.xaml</DependentUpon>
     </Compile>
@@ -300,6 +310,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WorkingBoard\Nodes\NewFile\View\TS_WB_NewFile_Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\WorkFile\View\MC_WB_WorkFile_Report.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\WorkFile\View\NV_WB_WorkFile_Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkingBoard\Nodes\WorkFile\View\TS_WB_WorkFile_Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

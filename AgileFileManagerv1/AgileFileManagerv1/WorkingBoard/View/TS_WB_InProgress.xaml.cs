@@ -23,6 +23,14 @@ namespace AgileFileManagerv1.WorkingBoard.View
         public TS_WB_InProgress()
         {
             InitializeComponent();
+
+            if(GetController().fileInProgress != null)
+            {
+                BT_OpenFile.IsEnabled = true;
+                BT_SaveFile.IsEnabled = true;
+                BT_FinishFile.IsEnabled = true;
+                BT_FreeFile.IsEnabled = true;
+            }
         }
 
         private void EV_StartCallIn(object sender, RoutedEventArgs e)
@@ -35,6 +43,33 @@ namespace AgileFileManagerv1.WorkingBoard.View
         {
             FloatWindows.FW_Clients.Controller.FW_Clients floatWindow = new FloatWindows.FW_Clients.Controller.FW_Clients(2);
             floatWindow.Show();
+        }
+
+        private void EV_OpenFile(object sender, RoutedEventArgs e)
+        {
+            GetController().CT_WorkFile();
+        }
+
+        private void EV_SaveFile(object sender, RoutedEventArgs e)
+        {
+            GetController().MD_SaveFileInProgress();
+        }
+
+        private void EV_FinishFile(object sender, RoutedEventArgs e)
+        {
+            GetController().MD_FinishFileInProgress();
+        }
+
+        private void EV_FreeFile(object sender, RoutedEventArgs e)
+        {
+            GetController().MD_FreeFileInProgress();
+        }
+
+        private WorkingBoard.Controller.WorkingBoardController GetController()
+        {
+            Window mainWindow = Application.Current.MainWindow;
+            var a = (MainWindow)mainWindow;
+            return (WorkingBoard.Controller.WorkingBoardController)a.MainFrame.Content;
         }
     }
 }
