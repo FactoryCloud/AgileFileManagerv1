@@ -37,8 +37,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             
             file = new File();
             file.client = client;
-            file.ClientID = client.ClientID;
-            file.Code = $"{String.Format("{YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
+            file.ClientID = client.ClientID;            
 
             reports = new List<Report>();
             interventions = new List<Intervention>();
@@ -85,6 +84,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             else
                 file.StateID = db.States.First(s => s.Name == "Por Terminar").StateID;
 
+            file.Code = $"{String.Format("{0:YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
             db.Files.Add(file);
             db.Reports.Add(reports.Last());
             db.Interventions.Add(interventions.Last());
@@ -98,6 +98,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             file.client = null;
             file.StateID = db.States.First(s => s.Name == "Terminado").StateID;
             file.DateEnd = DateTime.Today;
+            file.Code = $"{String.Format("{0:YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
 
             db.Files.Add(file);
             db.Reports.Add(reports.Last());
