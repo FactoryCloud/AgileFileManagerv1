@@ -30,6 +30,11 @@ namespace AgileFileManagerv1.Main.View
             GetController().CT_WorkingBoard();
         }
 
+        private void EV_Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
+
         private Main.Controller.MainController GetController()
         {
             Window mainWindow = Application.Current.MainWindow;

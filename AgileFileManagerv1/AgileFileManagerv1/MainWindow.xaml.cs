@@ -29,6 +29,19 @@ namespace AgileFileManagerv1
             this.Loaded += new RoutedEventHandler(EV_Start);
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
+        }
+
         private void EV_Start(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new Main.Controller.MainController();

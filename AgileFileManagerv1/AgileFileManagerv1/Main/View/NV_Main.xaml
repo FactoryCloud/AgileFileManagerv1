@@ -17,9 +17,9 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="BT_Client" Margin="20">Clientes</Button>
+        <Button Name="BT_Client" IsEnabled="False" Margin="20">Clientes</Button>
         <Button Name="BT_WorkingBoard" Margin="20" Grid.Column="1" Click="EV_WorkingBoard">Expedientes</Button>
         <Button Name="BT_Config" IsEnabled="false" Margin="20" Grid.Column="2">Configuración</Button>
-        <Button Name="BT_Close" Margin="20" Grid.Column="5">Salir</Button>
+        <Button Name="BT_Close" Margin="20" Grid.Column="5" Click="EV_Exit">Salir</Button>
     </Grid>
 </Page>
