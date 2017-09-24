@@ -44,7 +44,7 @@ namespace AgileFileManagerv1.Model
                 grid.ColumnDefinitions.Add(column3);
 
                 grid.Margin = new Thickness(15);
-                grid.MinHeight = 80;
+                grid.MinHeight = 50;
 
                 Label label1 = new Label();
                 label1.Content = $"Linea {i}";
