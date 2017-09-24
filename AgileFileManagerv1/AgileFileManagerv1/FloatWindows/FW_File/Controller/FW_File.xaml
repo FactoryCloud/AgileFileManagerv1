@@ -43,9 +43,9 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label VerticalAlignment="Center" HorizontalAlignment="Center">Técnico</Label>
-                <TextBox Name="TB_Employee" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <TextBox Name="TB_Employee" IsReadOnly="True" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
                 <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Estado</Label>
-                <TextBox Name="TB_State" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <TextBox Name="TB_State" IsReadOnly="True" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
@@ -57,9 +57,9 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label VerticalAlignment="Center" HorizontalAlignment="Center">Fecha Apertura</Label>
-                <TextBox Name="TB_DateStart" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <TextBox Name="TB_DateStart" IsReadOnly="True" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
                 <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Fecha Finalización</Label>
-                <TextBox Name="TB_DateEnd" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <TextBox Name="TB_DateEnd" IsReadOnly="True" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -71,9 +71,9 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label VerticalAlignment="Center" HorizontalAlignment="Center">Incidencia</Label>
-                <TextBox Name="TB_Issue" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <TextBox Name="TB_Issue" IsReadOnly="True" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
                 <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >Prioridad</Label>
-                <TextBox Name="TB_Priority" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
+                <TextBox Name="TB_Priority" IsReadOnly="True" Grid.Column="1" VerticalAlignment="Top" Margin="25,0,25,0" Grid.Row="1"></TextBox>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
                 <Grid.ColumnDefinitions>

@@ -38,6 +38,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             file = new File();
             file.client = client;
             file.ClientID = client.ClientID;
+            file.Code = $"{String.Format("{0:yy}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
 
             reports = new List<Report>();
             interventions = new List<Intervention>();

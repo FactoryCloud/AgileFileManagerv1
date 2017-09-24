@@ -75,6 +75,8 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.Controller
 
         public void SaveFile()
         {
+            if (file.EmployeeID != ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID)
+                file.StateID = 3;
             db.Files.Update(file);
 
             foreach(Report report in reports.Take(reports.Count-1))

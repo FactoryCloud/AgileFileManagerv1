@@ -31,7 +31,7 @@ namespace AgileFileManagerv1.Model
             {
                 case 1:
                     dt.Columns.Add("ID", typeof(int));
-                    dt.Columns.Add("Código", typeof(int));
+                    dt.Columns.Add("Código", typeof(string));
                     dt.Columns.Add("Cliente", typeof(string));
                     dt.Columns.Add("Fecha", typeof(string));
                     dt.Columns.Add("Prioridad", typeof(string));
@@ -40,7 +40,7 @@ namespace AgileFileManagerv1.Model
 
                 case 3:
                     dt.Columns.Add("ID", typeof(int));
-                    dt.Columns.Add("Código", typeof(int));
+                    dt.Columns.Add("Código", typeof(string));
                     dt.Columns.Add("Cliente", typeof(string));
                     dt.Columns.Add("Fecha", typeof(string));
                     dt.Columns.Add("Prioridad", typeof(string));
@@ -49,7 +49,7 @@ namespace AgileFileManagerv1.Model
 
                 case 5:
                     dt.Columns.Add("ID", typeof(int));
-                    dt.Columns.Add("Código", typeof(int));
+                    dt.Columns.Add("Código", typeof(string));
                     dt.Columns.Add("Cliente", typeof(string));
                     dt.Columns.Add("Fecha Inicio", typeof(string));
                     dt.Columns.Add("Fecha Finalización", typeof(string));
@@ -63,7 +63,7 @@ namespace AgileFileManagerv1.Model
                     WorkingBoard.Controller.FileController CT = (WorkingBoard.Controller.FileController)a.MainFrame.Content; ;
                     client = CT.file.client;
                     dt.Columns.Add("ID", typeof(int));
-                    dt.Columns.Add("Código", typeof(int));
+                    dt.Columns.Add("Código", typeof(string));
                     dt.Columns.Add("Licencia", typeof(string));
                     dt.Columns.Add("Técnico", typeof(string));
                     dt.Columns.Add("Fecha Inicio", typeof(string));
@@ -75,7 +75,7 @@ namespace AgileFileManagerv1.Model
 
                 default:
                     dt.Columns.Add("ID", typeof(int));
-                    dt.Columns.Add("Código", typeof(int));
+                    dt.Columns.Add("Código", typeof(string));
                     dt.Columns.Add("Cliente", typeof(string));
                     dt.Columns.Add("Fecha", typeof(string));
                     dt.Columns.Add("Prioridad", typeof(string));
