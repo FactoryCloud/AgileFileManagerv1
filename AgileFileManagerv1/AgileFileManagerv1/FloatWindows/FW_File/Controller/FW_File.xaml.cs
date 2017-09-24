@@ -88,7 +88,7 @@ namespace AgileFileManagerv1.FloatWindows.FW_File.Controller
             {
                 StackPanel panel = new StackPanel();
                 Label label = new Label();
-                label.Content = $"Intervención de {reports[i].employee.Code} {reports[i].employee.Name} {reports[i].Date}";
+                label.Content = $"Intervención de {interventions[i].employee.Code} {interventions[i].employee.Name} {interventions[i].Date}";
                 TextBox text = new TextBox();
                 text.MinHeight = 150;
                 text.TextWrapping = TextWrapping.Wrap;
