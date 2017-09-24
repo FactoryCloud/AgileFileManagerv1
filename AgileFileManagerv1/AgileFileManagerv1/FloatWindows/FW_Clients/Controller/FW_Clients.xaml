@@ -27,6 +27,6 @@
         <DataGrid Name="DG_Clients" Grid.ColumnSpan="2" Grid.Row="1" Margin="15"
                   IsReadOnly="True" SelectionMode="Single" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"
                   HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*"></DataGrid>
-        <Button Grid.Row="2" Name="BT_ClientSelect" Click="EV_ClientSelect" Margin="10">Continuar</Button>
+        <Button Grid.Row="2" Name="BT_ClientSelect" Click="EV_ClientOpen" Margin="10">Continuar</Button>
     </Grid>
 </Window>

@@ -42,6 +42,7 @@ namespace AgileFileManagerv1.FloatWindows.FW_Clients.Controller
             this.mode = mode;
 
             DG_Clients.MouseLeftButtonUp += new MouseButtonEventHandler(ClientSelected_Event);
+            DG_Clients.MouseDoubleClick += new MouseButtonEventHandler(EV_ClientOpen);
         }
 
         private void EV_Start(object sender, RoutedEventArgs e)
@@ -66,7 +67,7 @@ namespace AgileFileManagerv1.FloatWindows.FW_Clients.Controller
             DG_Clients.ItemsSource = viewClients.GetTable(db);
         }
 
-        private void EV_ClientSelect(object sender, RoutedEventArgs e)
+        private void EV_ClientOpen(object sender, RoutedEventArgs e)
         {
             switch(mode)
             {
