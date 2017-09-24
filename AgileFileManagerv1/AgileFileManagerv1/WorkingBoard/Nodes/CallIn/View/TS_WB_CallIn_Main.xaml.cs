@@ -27,7 +27,8 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.View
             if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Last().Description.Length > 0)
                 BT_SaveFile.IsEnabled = true;
 
-            if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Count > 0 && (GetController().interventions.Count > 1 || GetController().interventions.Last().Description.Length > 0)
+            if (GetController().file.priority != null && GetController().file.issue != null && GetController().reports.Count > 0 && GetController().reports.Last().Description.Length > 0 
+                && (GetController().interventions.Count > 1 || GetController().interventions.Last().Description.Length > 0)
                 && GetController().file.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID)
                 BT_FinishFile.IsEnabled = true;
 
