@@ -75,6 +75,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
 
         public void SaveFile()
         {
+            file.Code = $"{String.Format("{0:YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
             file.client = null;
             if (file.EmployeeID == null)
                 file.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
@@ -82,8 +83,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
             {
                 file.StateID = db.States.First(s => s.Name == "Por Terminar").StateID;
             }
-
-            file.Code = $"{String.Format("{0:YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
+            
             db.Files.Add(file);
             db.Reports.Add(reports.Last());
             db.Interventions.Add(interventions.Last());
@@ -94,11 +94,12 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
 
         public void FinishFile()
         {
+            file.Code = $"{String.Format("{0:YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
             file.client = null;
             file.StateID = db.States.First(s => s.Name == "Terminado").StateID;
             file.EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID;
             file.DateEnd = DateTime.Today;
-            file.Code = $"{String.Format("{0:YY}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
+            
 
             db.Files.Add(file);
             db.Reports.Add(reports.Last());
