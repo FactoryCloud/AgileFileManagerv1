@@ -86,7 +86,9 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
             
             db.Files.Add(file);
             db.Reports.Add(reports.Last());
-            db.Interventions.Add(interventions.Last());
+
+            if(interventions.Last().Description.Length>0)
+                db.Interventions.Add(interventions.Last());
 
             db.SaveChanges();
             CT_WB();
@@ -103,7 +105,9 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.CallIn.Controller
 
             db.Files.Add(file);
             db.Reports.Add(reports.Last());
-            db.Interventions.Add(interventions.Last());
+
+            if (interventions.Last().Description.Length > 0)
+                db.Interventions.Add(interventions.Last());
 
             db.SaveChanges();
             CT_WB();
