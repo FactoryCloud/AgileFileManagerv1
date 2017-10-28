@@ -39,7 +39,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.WorkFile.View
 
         private void EV_Start(object sender, RoutedEventArgs e)
         {
-            List<Issue> issues = GetController().GetIssues();
+            List<Issue> issues = GetController().GetIssues().OrderBy(i => i.Code.ToString()).ToList();
 
             int count = 0;
             foreach (Issue issue in issues)
