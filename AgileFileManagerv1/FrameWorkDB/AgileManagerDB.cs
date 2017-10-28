@@ -26,7 +26,7 @@ namespace FrameWorkDB.V1
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AgileManager;Integrated Security=True")
+            optionsBuilder.UseSqlServer(@"Data Source=85.137.183.6,49172;Initial Catalog=AgileManager;User ID=ceballos;Password=ceballitos")
                 .EnableSensitiveDataLogging();
         }
 
