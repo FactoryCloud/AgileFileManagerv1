@@ -93,12 +93,12 @@ namespace AgileFileManagerv1.Model
                     break;
 
                 case 3:
-                    files = db.Files.Where(f => (f.StateID == 3 && f.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID))
+                    files = db.Files.Where(f => (f.StateID == 3))
                         .Include(f => f.client).Include(f => f.priority).Include(f => f.issue).ToList();
                     break;
 
                 case 5:
-                    files = db.Files.Where(f => (f.StateID == 5 && f.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID))
+                    files = db.Files.Where(f => (f.StateID == 5))
                         .Include(f => f.client).Include(f => f.priority).Include(f => f.issue).ToList();
                     break;
 
