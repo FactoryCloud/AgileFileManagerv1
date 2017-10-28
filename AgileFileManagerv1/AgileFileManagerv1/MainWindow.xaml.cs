@@ -46,7 +46,7 @@ namespace AgileFileManagerv1
         {
             MainFrame.Content = new Main.Controller.MainController();
             AgileManagerDB db = new AgileManagerDB();
-            employee = db.Employees.First(em => em.Code == 2);
+            employee = db.Employees.First(em => em.Code == 5);
         }
     }
 }

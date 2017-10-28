@@ -21,7 +21,7 @@ namespace AgileFileManagerv1.Model
         public VW_Lines()
         {
             db = new AgileManagerDB();
-            employees = db.Employees.Where(e => e.DepartmentID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID).ToList();
+            employees = db.Employees.Where(e => e.DepartmentID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.DepartmentID).ToList();
         }
 
         public List<Grid> GetTable()
