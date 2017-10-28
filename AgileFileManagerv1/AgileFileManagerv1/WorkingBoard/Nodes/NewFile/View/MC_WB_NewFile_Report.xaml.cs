@@ -124,7 +124,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
             else
             {
                 this.Title = date.Value.ToShortDateString();
-                GetController().file.DateStart = date.Value;
+                //GetController().file.DateStart = date.Value;
             }
         }
 

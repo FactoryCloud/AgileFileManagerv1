@@ -44,7 +44,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
 
             reports.Add(new Report
             {
-                Date = DateTime.Now,
+                Date = DateTime.Today,
                 EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
                 file = file,
                 Description = ""
@@ -52,7 +52,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
 
             interventions.Add(new Intervention
             {
-                Date = DateTime.Now,
+                Date = DateTime.Today,
                 EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
                 file = file,
                 Description = ""
