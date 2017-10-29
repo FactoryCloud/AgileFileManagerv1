@@ -17,6 +17,10 @@ namespace FrameWorkDB.V1
 
         public decimal? Version { get; set; }
 
+        [ForeignKey("FK_Applications_DepartmentID_Departments")]
+        public int? DepartmentID { get; set; }
+        public virtual Department department { get; set; }
+
         public virtual List<License> licenses { get; set; }
     }
 }

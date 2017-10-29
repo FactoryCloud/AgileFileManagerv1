@@ -89,16 +89,16 @@ namespace AgileFileManagerv1.Model
             switch(mode)
             {
                 case 1:
-                    files = db.Files.Where(f=> f.StateID == 1).Include(f => f.client).Include(f=> f.priority).Include(f=> f.issue).ToList();
+                    files = db.Files.Where(f=> f.StateID == 1 && (f.license.application.DepartmentID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.DepartmentID || f.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID || f.EmployeeID == null)).Include(f => f.client).Include(f=> f.priority).Include(f=> f.issue).Include(f=> f.license.application).ToList();
                     break;
 
                 case 3:
-                    files = db.Files.Where(f => (f.StateID == 3))
+                    files = db.Files.Where(f => (f.StateID == 3 && (f.license.application.DepartmentID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.DepartmentID || f.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID)))
                         .Include(f => f.client).Include(f => f.priority).Include(f => f.issue).ToList();
                     break;
 
                 case 5:
-                    files = db.Files.Where(f => (f.StateID == 5))
+                    files = db.Files.Where(f => (f.StateID == 5 && (f.license.application.DepartmentID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.DepartmentID || f.EmployeeID == ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID)))
                         .Include(f => f.client).Include(f => f.priority).Include(f => f.issue).ToList();
                     break;
 
@@ -120,7 +120,7 @@ namespace AgileFileManagerv1.Model
                 switch(mode)
                 {
                     case 1:
-                        dt.Rows.Add(item.FileID, item.Code, $"{item.client.Code} {item.client.Name}", 
+                        dt.Rows.Add(item.FileID, item.Code, $"{item.client.Code} {item.client.Name} ({item.license.application.Name})", 
                             $"{String.Format("{0:dd/MM/yyyy}", item.DateStart)}", item.priority.Name, item.issue.Name);
                         break;
 

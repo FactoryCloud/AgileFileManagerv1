@@ -39,7 +39,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
 
         private void EV_Start(object sender, RoutedEventArgs e)
         {
-            List<Issue> issues = GetController().GetIssues().OrderBy(i => i.Code.ToString()).ToList();
+            List<Issue> issues = GetController().GetIssues().Where(i=> i.DepartmentID == GetController().file.license.application.DepartmentID).OrderBy(i => i.Code.ToString()).ToList();
 
             foreach (Issue issue in issues)
             {
@@ -124,7 +124,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.View
             else
             {
                 this.Title = date.Value.ToShortDateString();
-                //GetController().file.DateStart = date.Value;
+                GetController().file.DateStart = date.Value;
             }
         }
 

@@ -44,6 +44,12 @@ namespace FrameWorkDB.V1
                 .HasForeignKey(a => a.DepartmentID)
                 .HasConstraintName("FK_Employees_DepartmentID_Departments");
 
+            modelBuilder.Entity<Application>()
+                .HasOne(a => a.department)
+                .WithMany(b => b.applications)
+                .HasForeignKey(a => a.DepartmentID)
+                .HasConstraintName("FK_Applications_DepartmentID_Departments");
+
             modelBuilder.Entity<File>()
                 .HasOne(a => a.client)
                 .WithMany(b => b.files)

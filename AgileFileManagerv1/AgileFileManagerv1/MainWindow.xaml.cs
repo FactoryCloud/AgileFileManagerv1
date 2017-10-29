@@ -22,11 +22,13 @@ namespace AgileFileManagerv1
     public partial class MainWindow : Window
     {
         public Employee employee;
-        public MainWindow()
+        public MainWindow(Employee employee)
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
+            System.Windows.Application.Current.MainWindow = this;
             this.Loaded += new RoutedEventHandler(EV_Start);
+            this.employee = employee;
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -45,8 +47,6 @@ namespace AgileFileManagerv1
         private void EV_Start(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new Main.Controller.MainController();
-            AgileManagerDB db = new AgileManagerDB();
-            employee = db.Employees.First(em => em.Code == 5);
         }
     }
 }

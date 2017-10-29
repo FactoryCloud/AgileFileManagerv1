@@ -44,7 +44,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
 
             reports.Add(new Report
             {
-                Date = DateTime.Today,
+                Date = DateTime.Now,
                 EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
                 file = file,
                 Description = ""
@@ -52,7 +52,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
 
             interventions.Add(new Intervention
             {
-                Date = DateTime.Today,
+                Date = DateTime.Now,
                 EmployeeID = ((MainWindow)System.Windows.Application.Current.MainWindow).employee.EmployeeID,
                 file = file,
                 Description = ""
@@ -101,7 +101,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             file.Code = $"{String.Format("{0:yy}", file.DateStart)}\\{file.client.Code}\\{db.Files.Where(f => f.ClientID == file.ClientID).ToList().Count + 1}";
             file.client = null;
             file.StateID = db.States.First(s => s.Name == "Terminado").StateID;
-            file.DateEnd = DateTime.Today;
+            file.DateEnd = DateTime.Now;
             
 
             db.Files.Add(file);

@@ -163,6 +163,9 @@
     <Compile Include="FloatWindows\FW_File\Controller\FW_File.xaml.cs">
       <DependentUpon>FW_File.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FloatWindows\FW_Login\Controller\FW_Login.xaml.cs">
+      <DependentUpon>FW_Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\VW_Clients.cs" />
     <Compile Include="Model\VW_Lines.cs" />
     <Compile Include="WorkingBoard\Controller\FileController.cs" />
@@ -244,6 +247,10 @@
     <Page Include="FloatWindows\FW_File\Controller\FW_File.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloatWindows\FW_Login\Controller\FW_Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

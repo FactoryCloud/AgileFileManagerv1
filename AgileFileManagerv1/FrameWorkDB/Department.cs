@@ -17,5 +17,6 @@ namespace FrameWorkDB.V1
 
         public virtual List<Employee> employees { get; set; }
         public virtual List<Issue> issues { get; set; }
+        public virtual List<Application> applications { get; set; }
     }
 }
