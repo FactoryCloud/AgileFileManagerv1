@@ -28,7 +28,7 @@ namespace FrameWorkDB.V1
         {
             /*optionsBuilder.UseSqlServer(@"Data Source=85.137.183.6,49172;Initial Catalog=AgileManager;User ID=ceballos;Password=ceballitos")
                 .EnableSensitiveDataLogging();*/
-            optionsBuilder.UseSqlServer(@"Data Source=85.214.204.242\SQLEXPRESS,47192;Initial Catalog=AgileManager;Persist Security Info=True;User ID=ceballos;Password=?/(&MndZ#5""mk,RD")
+            optionsBuilder.UseSqlServer(@"Data Source=85.214.204.242\SQLEXPRESS,47192;Initial Catalog=AgileManager;Persist Security Info=True;User ID=sa;Password=FactoryCloud@2810")
                 .EnableSensitiveDataLogging();
         }
 
