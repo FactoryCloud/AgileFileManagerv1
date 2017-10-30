@@ -83,7 +83,7 @@ namespace AgileFileManagerv1.WorkingBoard.Nodes.NewFile.Controller
             if (file.EmployeeID == null)
                 file.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
             else
-                file.StateID = db.States.First(s => s.Name == "Por Terminar").StateID;
+                file.StateID = db.States.First(s => s.Name == "Pendiente").StateID;
 
             
             db.Files.Add(file);
